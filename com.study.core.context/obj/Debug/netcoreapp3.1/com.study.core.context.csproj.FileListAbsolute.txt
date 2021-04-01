@@ -1,0 +1,9 @@
+G:\GitHub\utopian72\com.study.core\com.study.core.context\bin\Debug\netcoreapp3.1\com.study.core.context.deps.json
+G:\GitHub\utopian72\com.study.core\com.study.core.context\bin\Debug\netcoreapp3.1\com.study.core.context.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.context\bin\Debug\netcoreapp3.1\com.study.core.context.pdb
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.csprojAssemblyReference.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.AssemblyInfoInputs.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.AssemblyInfo.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.csproj.CoreCompileInputs.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.context\obj\Debug\netcoreapp3.1\com.study.core.context.pdb

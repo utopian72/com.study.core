@@ -41,14 +41,14 @@ namespace com.study.core.model
         public virtual DbSet<V응답리스트매칭정보가로베이스> V응답리스트매칭정보가로베이스 { get; set; }
         public virtual DbSet<V테스트리스트> V테스트리스트 { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=172.29.181.161;Initial Catalog=mobileSurvey;User ID=sa;Password=skdltmfltjcl");
-            }
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Data Source=172.29.181.161;Initial Catalog=mobileSurvey;User ID=sa;Password=skdltmfltjcl");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

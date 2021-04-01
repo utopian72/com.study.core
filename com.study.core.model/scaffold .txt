@@ -1,0 +1,7 @@
+﻿dotnet tool install --global dotnet-ef
+
+
+dotnet add package Microsoft.EntityFrameworkCore.Design 
+
+
+dotnet ef dbcontext scaffold "Data Source=172.29.181.161;Initial Catalog=mobileSurvey;User ID=sa;Password=skdltmfltjcl" Microsoft.EntityFrameworkCore.SqlServer

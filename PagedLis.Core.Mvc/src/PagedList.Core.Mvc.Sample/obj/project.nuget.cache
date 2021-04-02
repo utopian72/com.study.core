@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "3BQTeNL7+00ROa3GKXJUidYCaLQuuE3pxFnz1QWCRbvdoKlXvnJTyHGXWf/vvbbM060K8gZH7VRCpJ+LWNFHsA==",
+  "success": true,
+  "projectFilePath": "G:\\GitHub\\utopian72\\com.study.core\\PagedLis.Core.Mvc\\src\\PagedList.Core.Mvc.Sample\\PagedList.Core.Mvc.Sample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\박성준\\.nuget\\packages\\pagedlist.core\\1.17.4\\pagedlist.core.1.17.4.nupkg.sha512",
+    "C:\\Users\\박성준\\.nuget\\packages\\pagedlist.core.mvc\\3.0.0\\pagedlist.core.mvc.3.0.0.nupkg.sha512",
+    "C:\\Users\\박성준\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\박성준\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\박성준\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\박성준\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

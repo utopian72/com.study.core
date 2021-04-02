@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h1>Index</h1>
 
 <p>
@@ -19,7 +20,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.QtText)
             </th>
-            <th>
+            <th class="column_hide">
                 @Html.DisplayNameFor(model => model.QtBody)
             </th>
             <th>
@@ -58,7 +59,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.QtText)
             </td>
-            <td>
+            <td class="column_hide">
                 @Html.DisplayFor(modelItem => item.QtBody)
             </td>
             <td>

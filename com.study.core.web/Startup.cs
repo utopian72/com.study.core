@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using com.study.core.model;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace com.study.core.web
 {
@@ -34,8 +36,12 @@ namespace com.study.core.web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
+            //you must add package Serilog.Extensions.Logging.File 
+            string path = Directory.GetCurrentDirectory();
+            loggerFactory.AddFile($"{path}\\logs\\log.txt");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

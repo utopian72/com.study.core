@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace com.study.core.model
 {
@@ -14,12 +15,21 @@ namespace com.study.core.model
         }
 
         public int SurveyNo { get; set; }
+        [Display(Name ="조사명")]
         public string SName { get; set; }
+
+        [Display(Name = "진행")]
         public bool? UseBl { get; set; }
+
+        
         public string SmsMessage { get; set; }
+        [Display(Name = "쿼터")]
         public bool IngQuotaBl { get; set; }
+
+        [Display(Name = "마감일")]
         public int LastDay { get; set; }
         public string Callback { get; set; }
+        [Display(Name = "접속경로")]
         public string Url { get; set; }
         public string Description { get; set; }
         public string LogoFile { get; set; }
@@ -28,6 +38,7 @@ namespace com.study.core.model
         public bool? UseQuotaAccessBl { get; set; }
         public int? LogoWidth { get; set; }
         public int? LogHeight { get; set; }
+        [Display(Name = "진행년도")]
         public string SurveyYear { get; set; }
 
         public virtual ICollection<TblList> TblList { get; set; }

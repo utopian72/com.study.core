@@ -6,22 +6,50 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using com.study.core.model;
+using Microsoft.Extensions.Logging;
 
 namespace com.study.core.web.Controllers
 {
     public class TblSurveysController : Controller
     {
+        private ILogger<TblSurveysController> _logger;
         private readonly mobileSurveyContext _context;
-
-        public TblSurveysController(mobileSurveyContext context)
+        const int pageSize = 5;
+        public TblSurveysController(mobileSurveyContext context , ILogger<TblSurveysController> logger)
         {
+            _logger = logger;
             _context = context;
         }
 
         // GET: TblSurveys
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string query ,  int page = 1)
         {
-            return View(await _context.TblSurvey.ToListAsync());
+            string notnullquery = query ?? "";
+
+            //var surveys = await _context
+            //                        .TblSurvey
+            //                        .OrderBy(p => p.SurveyNo)
+            //                        .Skip((page - 1) * pageSize)
+            //                        .Take(pageSize)
+            //                        .ToListAsync();
+
+            var surveys = await _context
+                                    .TblSurvey
+                                    .Where(x => x.SName.Contains(notnullquery))
+                                    .ToListAsync();
+
+            int total = _context.TblSurvey.Count();
+
+            ViewBag.Query = query;
+            ViewBag.CurrentPage = page;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalPages = Math.Ceiling((double)total / (double)pageSize);
+
+            //return View(await _context.TblSurvey.ToListAsync());
+            PagedList.Core.PagedList<TblSurvey> pagesurveys = new PagedList.Core.PagedList<TblSurvey>(surveys.AsQueryable(), page, pageSize);
+
+            //_logger.LogInformation($"ViewBag.CurrentPage:{ViewBag.CurrentPage},ViewBag.PageSize:{ViewBag.PageSize}, ViewBag.TotalPages;{ ViewBag.TotalPages}");
+            return View(pagesurveys);
         }
 
         // GET: TblSurveys/Details/5

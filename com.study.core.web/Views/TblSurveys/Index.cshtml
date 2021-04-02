@@ -1,0 +1,120 @@
+﻿@model IEnumerable<com.study.core.model.TblSurvey>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseBl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SmsMessage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IngQuotaBl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Callback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoFile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseListCountBl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CssStyleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseQuotaAccessBl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogoWidth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LogHeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyYear)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmsMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IngQuotaBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Callback)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoFile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseListCountBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CssStyleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseQuotaAccessBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogHeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyYear)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SurveyNo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SurveyNo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SurveyNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

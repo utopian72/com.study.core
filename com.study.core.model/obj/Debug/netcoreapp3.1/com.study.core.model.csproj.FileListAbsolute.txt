@@ -3,10 +3,10 @@ G:\GitHub\utopian72\com.study.core\com.study.core.model\bin\Debug\netcoreapp3.1\
 G:\GitHub\utopian72\com.study.core\com.study.core.model\bin\Debug\netcoreapp3.1\com.study.core.model.runtimeconfig.dev.json
 G:\GitHub\utopian72\com.study.core\com.study.core.model\bin\Debug\netcoreapp3.1\com.study.core.model.dll
 G:\GitHub\utopian72\com.study.core\com.study.core.model\bin\Debug\netcoreapp3.1\com.study.core.model.pdb
-G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.csprojAssemblyReference.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.AssemblyInfoInputs.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.AssemblyInfo.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.csproj.CoreCompileInputs.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.dll
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.pdb
 G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.genruntimeconfig.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.model\obj\Debug\netcoreapp3.1\com.study.core.model.csprojAssemblyReference.cache

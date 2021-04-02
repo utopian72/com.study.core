@@ -1,0 +1,81 @@
+﻿@model com.study.core.model.TblQuestion
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TblQuestion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="SurveyNo" />
+            <input type="hidden" asp-for="QtCode" />
+            <div class="form-group">
+                <label asp-for="QtType" class="control-label"></label>
+                <input asp-for="QtType" class="form-control" />
+                <span asp-validation-for="QtType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtText" class="control-label"></label>
+                <input asp-for="QtText" class="form-control" />
+                <span asp-validation-for="QtText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtBody" class="control-label"></label>
+                <input asp-for="QtBody" class="form-control" />
+                <span asp-validation-for="QtBody" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtScript" class="control-label"></label>
+                <input asp-for="QtScript" class="form-control" />
+                <span asp-validation-for="QtScript" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseQuotaBl" class="control-label"></label>
+                <input asp-for="UseQuotaBl" class="form-control" />
+                <span asp-validation-for="UseQuotaBl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextQuestion" class="control-label"></label>
+                <input asp-for="NextQuestion" class="form-control" />
+                <span asp-validation-for="NextQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndCode" class="control-label"></label>
+                <input asp-for="EndCode" class="form-control" />
+                <span asp-validation-for="EndCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exclude" class="control-label"></label>
+                <input asp-for="Exclude" class="form-control" />
+                <span asp-validation-for="Exclude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Include" class="control-label"></label>
+                <input asp-for="Include" class="form-control" />
+                <span asp-validation-for="Include" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Detailorder" class="control-label"></label>
+                <input asp-for="Detailorder" class="form-control" />
+                <span asp-validation-for="Detailorder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

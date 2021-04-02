@@ -1,0 +1,96 @@
+﻿@model IEnumerable<com.study.core.model.TblQuestion>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QtType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtBody)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtScript)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UseQuotaBl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NextQuestion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exclude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Include)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Detailorder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SurveyNoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtScript)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseQuotaBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exclude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Include)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detailorder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyNoNavigation.SmsMessage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

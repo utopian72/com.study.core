@@ -1,8 +1,6 @@
-using com.study.core.model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using com.study.core.model;
+using Microsoft.EntityFrameworkCore;
 
 namespace com.study.core.web
 {
@@ -28,7 +28,7 @@ namespace com.study.core.web
             services.AddControllersWithViews();
 
             //context를 등록한다.
-            services.AddDbContext<mobileSurveyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LMSContext")));
+            services.AddDbContext<com.study.core.model.mobileSurveyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LMSContext")));
 
 
         }

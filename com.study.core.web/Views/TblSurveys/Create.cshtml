@@ -1,0 +1,109 @@
+﻿@model com.study.core.model.TblSurvey
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TblSurvey</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyNo" class="control-label"></label>
+                <input asp-for="SurveyNo" class="form-control" />
+                <span asp-validation-for="SurveyNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SName" class="control-label"></label>
+                <input asp-for="SName" class="form-control" />
+                <span asp-validation-for="SName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseBl" class="control-label"></label>
+                <input asp-for="UseBl" class="form-control" />
+                <span asp-validation-for="UseBl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SmsMessage" class="control-label"></label>
+                <input asp-for="SmsMessage" class="form-control" />
+                <span asp-validation-for="SmsMessage" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IngQuotaBl" /> @Html.DisplayNameFor(model => model.IngQuotaBl)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastDay" class="control-label"></label>
+                <input asp-for="LastDay" class="form-control" />
+                <span asp-validation-for="LastDay" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Callback" class="control-label"></label>
+                <input asp-for="Callback" class="form-control" />
+                <span asp-validation-for="Callback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Url" class="control-label"></label>
+                <input asp-for="Url" class="form-control" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogoFile" class="control-label"></label>
+                <input asp-for="LogoFile" class="form-control" />
+                <span asp-validation-for="LogoFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseListCountBl" class="control-label"></label>
+                <input asp-for="UseListCountBl" class="form-control" />
+                <span asp-validation-for="UseListCountBl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CssStyleName" class="control-label"></label>
+                <input asp-for="CssStyleName" class="form-control" />
+                <span asp-validation-for="CssStyleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UseQuotaAccessBl" class="control-label"></label>
+                <input asp-for="UseQuotaAccessBl" class="form-control" />
+                <span asp-validation-for="UseQuotaAccessBl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogoWidth" class="control-label"></label>
+                <input asp-for="LogoWidth" class="form-control" />
+                <span asp-validation-for="LogoWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LogHeight" class="control-label"></label>
+                <input asp-for="LogHeight" class="form-control" />
+                <span asp-validation-for="LogHeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SurveyYear" class="control-label"></label>
+                <input asp-for="SurveyYear" class="form-control" />
+                <span asp-validation-for="SurveyYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

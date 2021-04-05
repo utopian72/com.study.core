@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PagedList.Core.Mvc;
-
-namespace com.study.core.web.Pagination
+﻿namespace com.study.core.web.Pagination
 {
-
-   public class SitePagedListRenderOptions
+    public class SitePagedListRenderOptions
     {
         public static PagedListRenderOptions Boostrap4
         {
@@ -15,7 +8,7 @@ namespace com.study.core.web.Pagination
             {
                 var option = PagedListRenderOptions.Bootstrap4Full;
 
-                option.MaximumPageNumbersToDisplay = 10;
+                option.MaximumPageNumbersToDisplay = 5;
 
                 return option;
             }

@@ -1,8 +1,12 @@
-namespace PagedList.Core.Mvc
+Ôªøusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using PagedList.Core.Mvc;
+
+namespace com.study.core.web.Pagination
 {
-    ///<summary>
-    /// Options for configuring the output of <see cref = "HtmlHelper" />.
-    ///</summary>
+
     public partial class PagedListRenderOptions
     {
         private const string DefaultContainerHtmlTag = "nav";
@@ -13,13 +17,13 @@ namespace PagedList.Core.Mvc
 
         private static readonly string[] DefaultAhrefElementClasses = { "page-link" };
 
-        private const string DefaultLinkToPreviousPageFormat = "¿Ã¿¸";
+        private const string DefaultLinkToPreviousPageFormat = "Ïù¥Ï†Ñ";
 
-        private const string DefaultLinkToNextPageFormat = "¥Ÿ¿Ω";
+        private const string DefaultLinkToNextPageFormat = "Îã§Ïùå";
 
-        private const string DefaultLinkToFirstPageFormat = "√≥¿Ω";
+        private const string DefaultLinkToFirstPageFormat = "Ï≤òÏùå";
 
-        private const string DefaultLinkToLastPageFormat = "∏∂¡ˆ∏∑";
+        private const string DefaultLinkToLastPageFormat = "ÎßàÏßÄÎßâ";
 
         private static void SetBootstrap4Option(PagedListRenderOptions option)
         {
@@ -112,5 +116,8 @@ namespace PagedList.Core.Mvc
                 return option;
             }
         }
+
+        public string ContainerHtmlTag { get; private set; }
     }
 }
+

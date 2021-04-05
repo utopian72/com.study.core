@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PagedList.Core.Mvc
+namespace com.study.core.web.Pagination
 {
     ///<summary>
     /// Options for configuring the output of <see cref = "HtmlHelper" />.
@@ -43,7 +43,6 @@ namespace PagedList.Core.Mvc
             ClassToApplyToLastListItemInPager = "¥Ÿ¿Ω";
         }
 
-        public string ContainerHtmlTag { get; set; }
 
         ///<summary>
         /// CSSClasses to append to the &lt;ul&gt; element in the paging control.

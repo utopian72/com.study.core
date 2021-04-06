@@ -1,0 +1,6 @@
+2021-04-06T13:27:11.6166409+09:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-04-06T13:27:11.6341853+09:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-04-06T13:27:11.6343451+09:00  [INF] Content root path: "G:\GitHub\utopian72\com.study.core\com.study.core.web" (b5d60022)
+2021-04-06T13:27:58.3780283+09:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2021-04-06T13:27:58.3919929+09:00  [INF] Hosting environment: "Development" (c3307c92)
+2021-04-06T13:27:58.3921316+09:00  [INF] Content root path: "G:\GitHub\utopian72\com.study.core\com.study.core.web" (b5d60022)

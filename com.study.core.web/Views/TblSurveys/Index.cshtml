@@ -1,12 +1,14 @@
 ﻿@using com.study.core.model;
 @using com.study.core.web.Pagination;
+@using PagedList.Core;
+@using PagedList.Core.Mvc;
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, PagedList.Core.Mvc
 
 @*model IEnumerable<com.study.core.model.TblSurvey>*@
 
-@model com.study.core.web.Pagination.PagedList<TblSurvey>
+@model PagedList<TblSurvey>
 
 @{
     ViewData["Title"] = "Index";
@@ -25,7 +27,7 @@
     <thead>
         <tr>
             <th>
-                @Html.ActionLink("Index" , "TblSurveys", new { page = page , sort=1 ,query=query } )
+                @Html.ActionLink("Index", "TblSurveys", new { page = page, sort = 1, query = query })
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseBl)
@@ -131,19 +133,6 @@
         }
     </tbody>
 </table>
-
-<div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=  (ViewBag.CurrentPage >1 ?  ViewBag.CurrentPage -1:1) })">Previous</a></li>
-            @for (int p = 1; p <= ViewBag.TotalPages; p++)
-            {
-                <li class="page-item  @(p==ViewBag.CurrentPage ? "active":"")"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=p , query =query})">@p</a></li>
-            }
-            <li class="page-item"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=(ViewBag.CurrentPage == ViewBag.TotalPages ?  ViewBag.CurrentPage:ViewBag.CurrentPage+1)})">Next</a></li>
-        </ul>
-    </nav>
-</div>
 
 
 <pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4" asp-action="Index" asp-controller="TblSurveys" asp-route-query="@query" />

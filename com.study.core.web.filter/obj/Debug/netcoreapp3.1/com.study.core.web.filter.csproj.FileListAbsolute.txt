@@ -1,0 +1,9 @@
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.AssemblyInfoInputs.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.AssemblyInfo.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.csproj.CoreCompileInputs.cache
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\bin\Debug\netcoreapp3.1\com.study.core.web.filter.deps.json
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\bin\Debug\netcoreapp3.1\com.study.core.web.filter.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\bin\Debug\netcoreapp3.1\com.study.core.web.filter.pdb
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.pdb
+G:\GitHub\utopian72\com.study.core\com.study.core.web.filter\obj\Debug\netcoreapp3.1\com.study.core.web.filter.csprojAssemblyReference.cache

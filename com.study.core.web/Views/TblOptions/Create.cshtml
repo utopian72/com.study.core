@@ -1,0 +1,72 @@
+﻿@model com.study.core.model.TblOption
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TblOption</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SurveyNo" class="control-label"></label>
+                <select asp-for="SurveyNo" class ="form-control" asp-items="ViewBag.SurveyNo"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtCode" class="control-label"></label>
+                <select asp-for="QtCode" class ="form-control" asp-items="ViewBag.QtCode"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="OpCode" class="control-label"></label>
+                <input asp-for="OpCode" class="form-control" />
+                <span asp-validation-for="OpCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InputType" class="control-label"></label>
+                <input asp-for="InputType" class="form-control" />
+                <span asp-validation-for="InputType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InputLabel" class="control-label"></label>
+                <input asp-for="InputLabel" class="form-control" />
+                <span asp-validation-for="InputLabel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InputValue" class="control-label"></label>
+                <input asp-for="InputValue" class="form-control" />
+                <span asp-validation-for="InputValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NextQuestion" class="control-label"></label>
+                <input asp-for="NextQuestion" class="form-control" />
+                <span asp-validation-for="NextQuestion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndCode" class="control-label"></label>
+                <input asp-for="EndCode" class="form-control" />
+                <span asp-validation-for="EndCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Open" class="control-label"></label>
+                <input asp-for="Open" class="form-control" />
+                <span asp-validation-for="Open" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

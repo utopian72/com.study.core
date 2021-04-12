@@ -3134,7 +3134,8 @@
           "EPPlus.Core": "1.5.4",
           "Microsoft.AspNetCore.Http": "2.2.2",
           "Microsoft.AspNetCore.Mvc": "2.2.0",
-          "System.Data.OleDb": "5.0.0"
+          "System.Data.OleDb": "5.0.0",
+          "System.IO.Compression": "4.3.0"
         },
         "runtime": {
           "com.study.core.utility.dll": {}

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.utility", "c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.web.filter", "com.study.core.web.filter\com.study.core.web.filter.csproj", "{DB9EF432-DD19-403F-8ABC-359F00AB7A16}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.utility.test", "com.study.core.utility.test\com.study.core.utility.test.csproj", "{C80441E4-3BFA-4E75-BA2F-1372A4C88163}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DB9EF432-DD19-403F-8ABC-359F00AB7A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB9EF432-DD19-403F-8ABC-359F00AB7A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB9EF432-DD19-403F-8ABC-359F00AB7A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80441E4-3BFA-4E75-BA2F-1372A4C88163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80441E4-3BFA-4E75-BA2F-1372A4C88163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80441E4-3BFA-4E75-BA2F-1372A4C88163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80441E4-3BFA-4E75-BA2F-1372A4C88163}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

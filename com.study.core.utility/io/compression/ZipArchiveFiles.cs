@@ -32,7 +32,7 @@ namespace com.study.core.utility.io.compression
                 {
                     foreach (string file in files)
                     {
-                        _files.Add(new ZipFilePath(folder , file ));
+                        _files.Add(new ZipFilePath(folder ,Path.GetFileName(file)));
                     }
                 }
             }
@@ -58,13 +58,15 @@ namespace com.study.core.utility.io.compression
         public MemoryStream CreateSream()
         {
 
+            string zippath = System.IO.Path.Combine(_zipFilePath.FilePath, _zipFilePath.FileName);
             using (var memoryStream = new MemoryStream())
             {
                 using (var ziparchive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
                     foreach (var file in _files)
                     {
-                        ziparchive.CreateEntryFromFile(file.FilePath, file.FileName);
+                        string targetfile = System.IO.Path.Combine(file.FilePath, file.FileName);
+                        ziparchive.CreateEntryFromFile( targetfile  , file.FileName);
                     }
                 }
                 return memoryStream;

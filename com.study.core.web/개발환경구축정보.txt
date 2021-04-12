@@ -4,3 +4,9 @@
  - entity ef 버전은 3.1.10 을   설치 
  - 현재 프로젝트는 3.1.13 버전과 
  - codegenerator.mvc package는 3.1.5를 사용 
+
+
+
+ --git에서 스테이징 때문에 못 올릴때.
+
+ $ git push -u origin +master

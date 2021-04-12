@@ -20,3 +20,30 @@ namespace com.study.core.web.Pagination
         }
     }
 }
+
+/*option
+ 
+            DisplayLinkToIndividualPages = true;
+            DisplayPageCountAndCurrentLocation = false;
+            MaximumPageNumbersToDisplay = 10;
+            DisplayEllipsesWhenNotShowingAllPageNumbers = true;
+            EllipsesFormat = "&#8230;";
+            LinkToFirstPageFormat = "처음";
+            LinkToPreviousPageFormat = "이전";
+            LinkToIndividualPageFormat = "{0}";
+            LinkToNextPageFormat = "다음";
+            LinkToLastPageFormat = "마지막";
+            PageCountAndCurrentLocationFormat = "Page {0} of {1}.";
+            ItemSliceAndTotalFormat = "Showing items {0} through {1} of {2}.";
+            ClassToApplyToFirstListItemInPager = null;
+            ClassToApplyToLastListItemInPager = null;
+            ContainerHtmlTag = "nav";
+            UlElementClasses = new[] { "pagination" };
+            LiElementClasses = Enumerable.Empty<string>();
+            AhrefElementClasses = Enumerable.Empty<string>();
+            ActiveElementClasses = new[] { "active" };
+            DisabledElementClasses = new[] { "disabled" };
+            ClassToApplyToFirstListItemInPager = "이전";
+            ClassToApplyToLastListItemInPager = "다음";
+
+ */

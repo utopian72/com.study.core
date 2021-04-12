@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.13" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.13">
       <PrivateAssets>all</PrivateAssets>
@@ -18,6 +19,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\com.study.core.model\com.study.core.model.csproj" />
+    <ProjectReference Include="..\com.study.core.utility\com.study.core.utility.csproj" />
+    <ProjectReference Include="..\com.study.core.web.filter\com.study.core.web.filter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\upload\" />
   </ItemGroup>
 
 </Project>

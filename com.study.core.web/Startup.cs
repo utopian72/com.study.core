@@ -12,6 +12,7 @@ using com.study.core.model;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc;
 
 namespace com.study.core.web
 {
@@ -27,12 +28,18 @@ namespace com.study.core.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddNewtonsoftJson();
             services.AddControllersWithViews();
 
             //context를 등록한다.
             services.AddDbContext<com.study.core.model.mobileSurveyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LMSContext")));
 
-
+            services.AddMvc(option => option.EnableEndpointRouting = false).AddNewtonsoftJson();
+            services.AddHttpContextAccessor();
+            services.AddDistributedMemoryCache();
+            services.AddMvc().AddSessionStateTempDataProvider();
+            services.AddSession();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +61,8 @@ namespace com.study.core.web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
+            app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
 
@@ -64,7 +73,14 @@ namespace com.study.core.web
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "api",
+                    pattern: "api/{controller=Home}/{action=Index}/{id?}");
+
             });
+
+
+
         }
     }
 }

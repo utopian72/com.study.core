@@ -1,17 +1,21 @@
 ﻿@model com.study.core.model.TblSurvey
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "설문수정";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<h1>수정</h1>
 
-<h4>TblSurvey</h4>
+<h4>설문 </h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+<div class="text-right">
+    <a asp-action="Index" asp-controller="TblSurveys" class="btn btn-primary">목록</a>
+</div>
+<form asp-action="Edit" asp-controller="TblSurveys" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-6">
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="SurveyNo" />
             <div class="form-group">
@@ -57,6 +61,7 @@
             <div class="form-group">
                 <label asp-for="LogoFile" class="control-label"></label>
                 <input asp-for="LogoFile" class="form-control" />
+                <input name="fileCollection"  class="form-control" type="file" value="@Model.LogoFile" />@Html.DisplayFor(model => model.LogoFile)
                 <span asp-validation-for="LogoFile" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -89,16 +94,19 @@
                 <input asp-for="SurveyYear" class="form-control" />
                 <span asp-validation-for="SurveyYear" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            <div class="form-group col-md-12">
+                <div class="col-md-3">
+                    <input type="submit" value="저장" class="form-control btn btn-primary" />
+                </div>
+                <div class="col-md-3">
+                    @Html.ActionLink("삭제", "Delete", "TblSurveys", new { id = Model.SurveyNo }, new { @class = "form-control btn btn-warning" })
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -28,6 +28,11 @@ namespace com.study.core.utility
         {
             try
             {
+                if (!System.IO.File.Exists(filePath)) throw new Exception("파일이 존재한지 않습니다.");
+
+                string extension = System.IO.Path.GetExtension(filePath);
+
+                if (!extension.Contains("xls") && !extension.Contains("xlsx")) throw new Exception("지원하지 않는 파일입니다.(xls,xlsx)");
 
                 DataTable dt = new DataTable();
                 string conString = string.Format(oleConStringFormat, filePath);
@@ -58,7 +63,7 @@ namespace com.study.core.utility
                     }
                 }
             }
-            catch
+            catch(Exception ex)
             {
                 return null;
             }

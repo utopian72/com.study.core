@@ -76,21 +76,21 @@ namespace com.study.core.web.Controllers
             {
                 _context.Add(tblList);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index) , nameof(tblList) , new {surveyno = tblList.SurveyNo });
             }
             ViewData["SurveyNo"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblList.SurveyNo);
             return View(tblList);
         }
 
         // GET: TblLists/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? surveyno , int? listno)
         {
-            if (id == null)
+            if (surveyno == null && listno ==null )
             {
                 return NotFound();
             }
 
-            var tblList = await _context.TblList.FindAsync(id);
+            var tblList = await _context.TblList.FindAsync(surveyno , listno);
             if (tblList == null)
             {
                 return NotFound();
@@ -104,12 +104,12 @@ namespace com.study.core.web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SurveyNo,ListNo,CellNum,FinishBl,IngBl,RefusalBl,QuotaOverBl,StopBl,EndCode,StateCode,Col01,Col02,Col03,Col04,Col05,Col06,QuestCount")] TblList tblList)
+        public async Task<IActionResult> Edit( [Bind("SurveyNo,ListNo,CellNum,FinishBl,IngBl,RefusalBl,QuotaOverBl,StopBl,EndCode,StateCode,Col01,Col02,Col03,Col04,Col05,Col06,QuestCount")] TblList tblList)
         {
-            if (id != tblList.SurveyNo)
-            {
-                return NotFound();
-            }
+            //if (surveyno != tblList.SurveyNo || listno != tblList.ListNo)
+            //{
+            //    return NotFound();
+            //}
 
             if (ModelState.IsValid)
             {
@@ -120,7 +120,7 @@ namespace com.study.core.web.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!TblListExists(tblList.SurveyNo))
+                    if (!TblListExists(tblList.SurveyNo , tblList.ListNo))
                     {
                         return NotFound();
                     }
@@ -129,23 +129,23 @@ namespace com.study.core.web.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), "TblLists", new { surveyno = tblList.SurveyNo });
             }
             ViewData["SurveyNo"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblList.SurveyNo);
             return View(tblList);
         }
 
         // GET: TblLists/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? surveyno, int? listno)
         {
-            if (id == null)
+            if (surveyno == null && listno == null )
             {
                 return NotFound();
             }
 
             var tblList = await _context.TblList
                 .Include(t => t.SurveyNoNavigation)
-                .FirstOrDefaultAsync(m => m.SurveyNo == id);
+                .FirstOrDefaultAsync(m => m.SurveyNo == surveyno  && m.ListNo == listno);
             if (tblList == null)
             {
                 return NotFound();
@@ -165,9 +165,9 @@ namespace com.study.core.web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TblListExists(int id)
+        private bool TblListExists(int surveyno, int listno)
         {
-            return _context.TblList.Any(e => e.SurveyNo == id);
+            return _context.TblList.Any(e => e.SurveyNo == surveyno &&   e.ListNo == listno);
         }
     }
 }

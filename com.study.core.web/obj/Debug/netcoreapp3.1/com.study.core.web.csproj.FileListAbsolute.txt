@@ -391,3 +391,4 @@ G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Ra
 G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Mvc.Grid.Core.dll
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Grid.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Pager.cshtml.g.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SurveyLeftMenu.cshtml.g.cs

@@ -99,7 +99,7 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.SName)
+                        @Html.ActionLink(item.SName ,  "Index", "TblLists" , new {surveyno = item.SurveyNo } )
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.UseBl)

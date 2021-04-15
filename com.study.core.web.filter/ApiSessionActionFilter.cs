@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 using System.Net.Http;
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -66,7 +65,7 @@ namespace com.study.core.web.filter
 
             public void OnActionExecuted(ActionExecutedContext context)
             {
-                _logger.LogInformation("Business action completed.");
+                _logger.LogInformation("OnActionExecuted:Business Action completed.");
             }
         }
     }

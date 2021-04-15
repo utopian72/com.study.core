@@ -14,9 +14,6 @@ G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\co
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.MvcApplicationPartsAssemblyInfo.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.RazorAssemblyInfo.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.RazorAssemblyInfo.cs
-G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\staticwebassets\com.study.core.web.StaticWebAssets.Manifest.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\staticwebassets\com.study.core.web.StaticWebAssets.xml
-G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\scopedcss\bundle\com.study.core.web.styles.css
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.TagHelpers.input.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.TagHelpers.output.cache
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.RazorCoreGenerate.cache
@@ -391,3 +388,6 @@ G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Ra
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Details.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Edit.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Index.cshtml.g.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Mvc.Grid.Core.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Grid.cshtml.g.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Pager.cshtml.g.cs

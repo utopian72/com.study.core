@@ -1,4 +1,10 @@
-﻿@model IEnumerable<com.study.core.model.TblList>
+﻿@using System;
+@using NonFactors.Mvc.Grid;
+@using Microsoft.AspNetCore.Mvc.TagHelpers;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using System.Web;
+
+@model IEnumerable<com.study.core.model.TblList>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,9 +13,46 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="text-right">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">등록</a>
+    </p>
+</div>
+@(Html
+    .Grid(Model)
+    .Build(columns =>
+    {
+        columns.Add(model => model.Col01).Titled("항목01");
+        columns.Add(model => model.Col02).Titled("항목02");
+        columns.Add(model => model.Col03).Titled("항목03");
+        columns.Add(model => model.Col04).Titled("항목04");
+        columns.Add(model => model.Col05).Titled("항목05");
+        //columns.Add(model => model.CellNum).Titled("전호번호");
+        //columns.Add(model => model.FinishBl).Titled("종료여부");
+        //columns.Add(model => model.IngBl).Titled("진행여부");
+        //columns.Add(model => model.RefusalBl).Titled("거정여부");
+        //columns.Add(model => model.QuotaOverBl).Titled("쿼터오버");
+        //columns.Add(model => model.StopBl).Titled("중지여부");
+        //columns.Add(model => model.EndCode).Titled("종료코드");
+        //columns.Add(model => model.StateCode).Titled("진행상태");
+        //columns.Add(model => model.QuestCount).Titled("항목개수");
+
+
+    })
+    .Empty("No data found")
+    .Filterable()
+    .Sortable()
+    .Pageable(pager =>
+    {
+        pager.PageSizes = new Dictionary<Int32, String> { { 0, "All" }, { 2, "15" }, { 4, "20" } };
+        pager.ShowPageSizes = true;
+        pager.PagesToDisplay = 3;
+        pager.CurrentPage = 2;
+        pager.RowsPerPage = 15;
+    })
+)
+
+
 <table class="table">
     <thead>
         <tr>
@@ -65,62 +108,63 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CellNum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FinishBl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IngBl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RefusalBl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuotaOverBl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StopBl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EndCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StateCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col01)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col02)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col03)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col04)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col05)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Col06)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QuestCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SurveyNoNavigation.SName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CellNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishBl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IngBl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RefusalBl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuotaOverBl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StopBl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col01)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col02)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col03)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col04)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col05)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Col06)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuestCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SurveyNoNavigation.SName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

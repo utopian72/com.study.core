@@ -6,15 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using com.study.core.model;
+using Microsoft.Extensions.Logging;
 
 namespace com.study.core.web.Controllers
 {
     public class TblListsController : Controller
     {
         private readonly mobileSurveyContext _context;
+        private readonly ILogger<TblListsController> _logger;
 
-        public TblListsController(mobileSurveyContext context)
+        public TblListsController(mobileSurveyContext context  , ILogger<TblListsController> logger)
         {
+            _logger = logger;
             _context = context;
         }
 
@@ -24,8 +27,11 @@ namespace com.study.core.web.Controllers
             var mobileSurveyContext = _context.TblList.Include(t => t.SurveyNoNavigation);
             
             var lists = mobileSurveyContext.AsNoTracking();
-            surveyno = surveyno ?? 0;
-             
+
+            //surveyno = surveyno ?? 0;
+
+            _logger.LogInformation($"SurveyNo = {surveyno}");
+
             lists  = lists.Where(a => a.SurveyNo.Equals(surveyno));
 
             return View(await lists.ToListAsync());

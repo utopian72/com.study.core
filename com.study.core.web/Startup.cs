@@ -40,6 +40,7 @@ namespace com.study.core.web
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using com.study.core.model;
 using Microsoft.Extensions.Logging;
+using PagedList.Core.Mvc;
+using PagedList.Core;
 
 namespace com.study.core.web.Controllers
 {
@@ -15,28 +17,75 @@ namespace com.study.core.web.Controllers
         private readonly mobileSurveyContext _context;
         private readonly ILogger<TblListsController> _logger;
 
+        const int pageSize = 10;
+
         public TblListsController(mobileSurveyContext context  , ILogger<TblListsController> logger)
         {
             _logger = logger;
             _context = context;
         }
 
-        // GET: TblLists
-        public async Task<IActionResult> Index(int? surveyno)
+
+        private IQueryable<TblList> getLists(int? surveyno , string query)
         {
-            var mobileSurveyContext = _context.TblList.Include(t => t.SurveyNoNavigation);
-            
-            var lists = mobileSurveyContext.AsNoTracking();
+            var includelists = _context.TblList.Include(t => t.SurveyNoNavigation);
+
+            var lists = includelists.AsNoTracking();
+
+            return lists.Where(x=>x.SurveyNo.Equals(surveyno)).Where(x => x.CellNum.Contains(query));
+
+        }
+
+        private IQueryable<TblList> sortList(IQueryable<TblList> lists, string sortOrder)
+        {
+
+            ViewData["sortOrderCellNum"] = sortOrder.Equals("CellNum") ? "CellNum_desc" : "CellNum";
+
+            switch (sortOrder)
+            {
+                case "CellNum":
+                    lists = lists.OrderBy(a => a.CellNum);
+                    break;
+                case "CellNum_desc":
+                    lists = lists.OrderByDescending(a => a.CellNum);
+                    break;
+                default:
+                    lists = lists.OrderByDescending(a => a.CellNum);
+                    break;
+            }
+            return lists;
+        }
+
+        // GET: TblLists
+        public IActionResult Index(int? surveyno , string sortOrder, string query, int page = 1)
+        {
+           
+
+            query = query ?? "";
+
+            sortOrder = string.IsNullOrEmpty(sortOrder) ? "CellNum_desc" : sortOrder;
+
+            //var lists = mobileSurveyContext.AsNoTracking();
 
             //surveyno = surveyno ?? 0;
+            var lists = getLists(surveyno , query);
 
-            _logger.LogInformation($"SurveyNo = {surveyno}");
+            lists = sortList(lists, sortOrder);
 
-            lists  = lists.Where(a => a.SurveyNo.Equals(surveyno));
+            ViewData["query"] = query;
+            ViewData["sortOrder"] = sortOrder;
+            ViewData["currentSort"] = sortOrder;
+            ViewData["surveyno"] = surveyno?? 0;
 
-            return View(await lists.ToListAsync());
-
-            //return View(await mobileSurveyContext.ToListAsync());
+            if (lists != null)
+            {
+                var pagesurveys = new PagedList.Core.PagedList<TblList>(lists, page, pageSize);
+                return View(pagesurveys);
+            }else
+            {
+                return View();
+            }
+          
         }
 
         // GET: TblLists/Details/5

@@ -294,6 +294,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.ApplicationInsights": {
+              "target": "Package",
+              "version": "[2.17.0, )"
+            },
+            "Microsoft.ApplicationInsights.AspNetCore": {
+              "target": "Package",
+              "version": "[2.17.0, )"
+            },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -320,10 +328,6 @@
               "target": "Package",
               "version": "[3.1.5, )"
             },
-            "NonFactors.Grid.Core.Mvc6": {
-              "target": "Package",
-              "version": "[6.2.4, )"
-            },
             "PagedList.Core.Mvc": {
               "target": "Package",
               "version": "[3.0.0, )"
@@ -335,6 +339,10 @@
             "bootstrap": {
               "target": "Package",
               "version": "[4.3.1, )"
+            },
+            "jQWidgets.AspNetCore.Mvc.TagHelpers": {
+              "target": "Package",
+              "version": "[2.0.1, )"
             }
           },
           "imports": [

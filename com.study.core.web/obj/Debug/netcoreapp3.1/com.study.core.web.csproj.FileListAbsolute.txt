@@ -388,7 +388,13 @@ G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Ra
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Details.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Edit.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblLists\Index.cshtml.g.cs
-G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Mvc.Grid.Core.dll
-G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Grid.cshtml.g.cs
-G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\MvcGrid\_Pager.cshtml.g.cs
 G:\GitHub\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_SurveyLeftMenu.cshtml.g.cs
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\jQWidgets.AspNetCore.Mvc.TagHelpers.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.ApplicationInsights.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.ApplicationInsights.AspNetCore.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.AI.DependencyCollector.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.AI.EventCounterCollector.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.AI.PerfCounterCollector.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.AI.WindowsServer.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.AI.ServerTelemetryChannel.dll
+G:\GitHub\utopian72\com.study.core\com.study.core.web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.ApplicationInsights.dll

@@ -6,9 +6,8 @@
     <title>@ViewData["Title"] - com.study.core.web</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
     <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
-    <link href="~/css/mvc-grid/mvc-grid.css" rel="stylesheet">
+    <link href="~/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
 
     <style type="text/css">
         .column_hide {
@@ -20,7 +19,7 @@
             text-align: center;
             vertical-align: middle;
         }
-        
+
 
         .vertical-menu a {
             background-color: #eee; /* Grey background color */
@@ -30,14 +29,14 @@
             text-decoration: none; /* Remove underline from links */
         }
 
-        .vertical-menu a:hover {
-            background-color: #ccc; /* Dark grey background on mouse-over */
-        }
+            .vertical-menu a:hover {
+                background-color: #ccc; /* Dark grey background on mouse-over */
+            }
 
-        .vertical-menu a.active {
-            background-color: #4CAF50; /* Add a green color to the "active/current" link */
-            color: white;
-        }
+            .vertical-menu a.active {
+                background-color: #4CAF50; /* Add a green color to the "active/current" link */
+                color: white;
+            }
     </style>
 </head>
 <body>
@@ -73,7 +72,7 @@
         <div class="container-fluid col-md-12">
             <div class="col-md-2" style="float:left;">
                 @Html.Partial(@"_SurveyLeftMenu.cshtml")
-                
+
             </div>
             <div class="col-md-10" style="float:right;">
 
@@ -84,11 +83,9 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/mvc-grid/mvc-grid.js"></script>
+    
+
     @RenderSection("Scripts", required: false)
-    <script type="text/javascript">
-        document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
-    </script>
 
 </body>
 </html>

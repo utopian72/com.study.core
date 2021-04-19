@@ -21,6 +21,7 @@
     ViewData["Title"] = "리스트 목록";
 
     Layout = "~/Views/Shared/_Layout.cshtml";
+
     int surveyno = ViewData["surveyno"] is null ? 0 : Convert.ToInt32(ViewData["surveyno"]);
 
     string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "CellNum" : ViewData["currentSort"].ToString();
@@ -32,6 +33,7 @@
 
 
     string sortOrderCellNum = @ViewData["sortOrderCellNum"] is null ? "CellNum" : @ViewData["sortOrderCellNum"].ToString();
+    
 }
 
 <h1>리스트</h1>
@@ -46,17 +48,19 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-controller="TblLists" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@ViewData["sortOrderCellNum"]">
+                <a asp-action="Index" asp-controller="TblLists"  asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber"  asp-route-sortOrder="@ViewData["sortOrderCellNum"]">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().CellNum)
                 </a>
             </th>
 
             <th>
-                <a asp-action="Index" asp-controller="TblLists" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCol01">
+                <a asp-action="Index" asp-controller="TblLists" asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCol01" >
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Col01)
                 </a>
             </th>
-
+            <th>
+                수정
+            </th>
 
         </tr>
     </thead>
@@ -66,7 +70,7 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.CellNum, "Index", "TblLists", new { surveyno = item.SurveyNo })
+                    @Html.ActionLink(item.CellNum, "Edit", "TblLists", new { surveyno = item.SurveyNo , listno =item.ListNo })
                 </td>
 
                 <td>
@@ -83,7 +87,7 @@
 </table>
 
 
-<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4"  asp-route-surveyno="@surveyno=@surveyno" asp-route-sortOrder="@currentSort" asp-action="Index" asp-controller="TblLists" asp-route-query="@query" />
+<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4"  asp-route-surveyno="@surveyno" asp-route-sortOrder="@currentSort"asp-route-query="@query"  asp-action="Index" asp-controller="TblLists" />
 
 
 

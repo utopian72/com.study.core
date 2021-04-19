@@ -19,10 +19,15 @@ namespace com.study.core.web.Controllers
         }
 
         // GET: TblQuestions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? surveyno)
         {
             var mobileSurveyContext = _context.TblQuestion.Include(t => t.SurveyNoNavigation);
-            return View(await mobileSurveyContext.ToListAsync());
+
+
+            ViewData["surveyno"] = surveyno;
+
+
+            return View(await mobileSurveyContext.Where(x => x.SurveyNo.Equals(surveyno)).ToListAsync());
         }
 
         // GET: TblQuestions/Details/5
@@ -40,6 +45,8 @@ namespace com.study.core.web.Controllers
             {
                 return NotFound();
             }
+            
+            ViewData["surveyno"] = id;
 
             return View(tblQuestion);
         }

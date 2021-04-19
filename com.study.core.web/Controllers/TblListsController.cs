@@ -40,6 +40,7 @@ namespace com.study.core.web.Controllers
         {
 
             ViewData["sortOrderCellNum"] = sortOrder.Equals("CellNum") ? "CellNum_desc" : "CellNum";
+            ViewData["sortOrderCol01"] = sortOrder.Equals("Col01") ? "Col01_desc" : "Col01";
 
             switch (sortOrder)
             {
@@ -49,6 +50,13 @@ namespace com.study.core.web.Controllers
                 case "CellNum_desc":
                     lists = lists.OrderByDescending(a => a.CellNum);
                     break;
+                case "Col01":
+                    lists = lists.OrderBy(a => a.Col01);
+                    break;
+                case "Col01_desc":
+                    lists = lists.OrderByDescending(a => a.Col01);
+                    break;
+
                 default:
                     lists = lists.OrderByDescending(a => a.CellNum);
                     break;
@@ -63,7 +71,7 @@ namespace com.study.core.web.Controllers
 
             query = query ?? "";
 
-            sortOrder = string.IsNullOrEmpty(sortOrder) ? "CellNum_desc" : sortOrder;
+            sortOrder = string.IsNullOrEmpty(sortOrder) ? "CellNum" : sortOrder;
 
             //var lists = mobileSurveyContext.AsNoTracking();
 
@@ -71,7 +79,7 @@ namespace com.study.core.web.Controllers
             var lists = getLists(surveyno , query);
 
             lists = sortList(lists, sortOrder);
-
+            
             ViewData["query"] = query;
             ViewData["sortOrder"] = sortOrder;
             ViewData["currentSort"] = sortOrder;

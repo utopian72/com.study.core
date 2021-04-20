@@ -1,13 +1,15 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@using System;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 
-    int surveyno = ViewData["surveyno"] is null ? 0 : Convert.ToInt32(ViewData["surveyno"]);
+    int surveyno = ViewData["surveyno"] == null  ? 0 : Convert.ToInt32(ViewData["surveyno"]);
 
     string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
 
     string activelabel = "active";
 
     var menus = com.study.core.web.menu.MenuItem.CreateMenus();
+
 }
 
 

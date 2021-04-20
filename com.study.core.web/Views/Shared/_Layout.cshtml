@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
     <link href="~/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
-
+    <link href="~/css/DataTables/css/jquery.dataTables.css" rel="stylesheet" />
     <style type="text/css">
         .column_hide {
             visibility: hidden;
@@ -51,18 +51,9 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="TblSurveys" asp-action="Index">조사</a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="TblLists" asp-action="Index">리스트</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -80,12 +71,13 @@
             </div>
         </div>
     </main>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
 
     @RenderSection("Scripts", required: false)
-
+    <script src="~/lib/jquery/DataTables/jquery.dataTables.js"></script>
 </body>
 </html>

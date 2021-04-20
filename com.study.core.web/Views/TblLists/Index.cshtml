@@ -70,16 +70,14 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.CellNum, "Edit", "TblLists", new { surveyno = item.SurveyNo , listno =item.ListNo })
+                    @Html.Display(item.CellNum);
                 </td>
 
                 <td>
                     @Html.Display(item.Col01);
                 </td>
-
-
                 <td>
-                    <a asp-action="Edit" class="btn btn-primary" asp-route-surveyno="@item.SurveyNo">수정</a>
+                    <a asp-action="Edit" asp-controller="TblLists" class="btn btn-primary" asp-route-listno="@item.ListNo" asp-route-surveyno="@item.SurveyNo">수정</a>
                 </td>
             </tr>
         }
@@ -87,7 +85,7 @@
 </table>
 
 
-<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4"  asp-route-surveyno="@surveyno" asp-route-sortOrder="@currentSort"asp-route-query="@query"  asp-action="Index" asp-controller="TblLists" />
+<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4"   asp-route-surveyno="@surveyno" asp-route-sortOrder="@currentSort"asp-route-query="@query"  asp-action="Index" asp-controller="TblLists" />
 
 
 

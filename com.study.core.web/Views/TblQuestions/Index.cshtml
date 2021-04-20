@@ -17,7 +17,7 @@
         <a asp-action="Create" asp-controller="TblQuestions" asp-route-surveyno="@surveyno">등록</a>
     </p>
 </div>
-<table class="table">
+<table id="qtable" class="table">
     <thead>
         <tr>
             <th>
@@ -47,10 +47,10 @@
             <th>
                 @Html.DisplayNameFor(model => model.Include)
             </th>
-            <th>
+            <th class="column_hide">
                 @Html.DisplayNameFor(model => model.Detailorder)
             </th>
-            <th>
+            <th class="column_hide">
                 @Html.DisplayNameFor(model => model.SurveyNoNavigation)
             </th>
             <th></th>
@@ -59,44 +59,68 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QtType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QtText)
-                </td>
-                <td class="column_hide">
-                    @Html.DisplayFor(modelItem => item.QtBody)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.QtScript)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UseQuotaBl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NextQuestion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Exclude)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Include)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Detailorder)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SurveyNoNavigation.SmsMessage)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtText)
+            </td>
+            <td class="column_hide">
+                @Html.DisplayFor(modelItem => item.QtBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtScript)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseQuotaBl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NextQuestion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exclude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Include)
+            </td>
+            <td class="column_hide">
+                @Html.DisplayFor(modelItem => item.Detailorder)
+            </td>
+            <td class="column_hide">
+                @Html.DisplayFor(modelItem => item.SurveyNoNavigation.SmsMessage)
+            </td>
+            <td>
+                @Html.ActionLink("수정", "Edit", "TblQuestions" ,new { surveyno =item.SurveyNo , qtCode=item.QtCode }  , new {@class="btn btn-sm btn-primary" }) 
+            </td>
+        </tr>
         }
     </tbody>
+
 </table>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#qtable").DataTable({
+            pageLength: 5,
+            ordering: true,
+            lengthChange: false,
+            language: {
+                paginate: {
+                    previous: '‹',
+                    next: '›'
+                },
+                aria: {
+                    paginate: {
+                        previous: '이전',
+                        next: '다음'
+                    }
+                }
+            }
+        });
+    });
+</script>

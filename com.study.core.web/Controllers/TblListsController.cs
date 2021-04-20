@@ -152,7 +152,9 @@ namespace com.study.core.web.Controllers
             {
                 return NotFound();
             }
-            ViewData["SurveyNo"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblList.SurveyNo);
+
+            ViewData["SurveyItems"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblList.SurveyNo);
+
             return View(tblList);
         }
 

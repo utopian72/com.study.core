@@ -29,6 +29,36 @@
     
 }
 
+<style>
+    .header-survey-title {
+        width:450px;
+    }
+
+    .header-survey-active {
+        width: 100px;
+    }
+
+    .header-survey-quota {
+        width: 80px;
+    }
+
+    .header-survey-lastday {
+        width: 80px;
+    }
+
+    .header-survey-year {
+        width: 100px;
+    }
+
+    .header-survey-button {
+        width: 100px;
+    }
+
+
+    .column-text-center {
+        text-align: center;
+    }
+</style>
 
 <h1>@ViewData["Title"]</h1>
 
@@ -55,21 +85,21 @@
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>
+            <th class="header-survey-title">
                 <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@ViewData["sortOrderSName"]">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SName)
                 </a>
             </th>
-            <th>
+            <th  class="header-survey-active">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseBl)
             </th>
             <th class="column_hide">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SmsMessage)
             </th>
-            <th>
+            <th class="header-survey-quota">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().IngQuotaBl)
             </th>
-            <th>
+            <th class="header-survey-lastday">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LastDay)
             </th>
             <th class="column_hide">
@@ -99,10 +129,10 @@
             <th class="column_hide">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LogHeight)
             </th>
-            <th>
+            <th class="header-survey-year">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SurveyYear)
             </th>
-            <th>수정</th>
+            <th class="header-survey-button">수정</th>
         </tr>
     </thead>
 
@@ -113,16 +143,16 @@
                 <td>
                     @Html.ActionLink(item.SName, "Index", "TblLists", new { surveyno = item.SurveyNo })
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.UseBl)
                 </td>
                 <td class="column_hide">
                     @Html.DisplayFor(modelItem => item.SmsMessage)
                 </td>
-                <td>
+                <td  class="column-text-center">
                     @Html.DisplayFor(modelItem => item.IngQuotaBl)
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.LastDay)
                 </td>
                 <td class="column_hide">
@@ -152,7 +182,7 @@
                 <td class="column_hide">
                     @Html.DisplayFor(modelItem => item.LogHeight)
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.SurveyYear)
                 </td>
                 <td>

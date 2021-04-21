@@ -13,6 +13,8 @@ using System.Net.Http.Headers;
 using com.study.core.model;
 using System.Net;
 using com.study.core.utility;
+using com.study.core.utility.io.compression;
+
 namespace com.study.core.web.Controllers
 {
     public class TblSurveysController : Controller
@@ -65,6 +67,31 @@ namespace com.study.core.web.Controllers
             return File(stream, fileType, fileName);
 
         }
+
+        //public IActionResult DownLoad(string query)
+        //{
+
+        //    string filePath = @"F:\ziptest";
+        //    string fileName = "tes.zip";
+
+        //    var zipfilepath = new ZipFilePath() { FilePath = filePath, FileName = fileName };
+        //    var zip = new com.study.core.utility.io.compression.ZipArchiveFiles(zipfilepath);
+
+        //    zip.AddFilesInFolder(@"F:\강의\대용량아키텍처설계\대용량아키텍처설계");
+        //    var stream = zip.CreateSream();
+        //    //stream.Position = 0;
+        //    //string zipfile = System.IO.Path.Combine(zipfilepath.FilePath, zipfilepath.FileName);
+
+        //    string doctype = "application/octet-stream";
+        //    //            FileStreamResult fileStreamResult = new FileStreamResult( stream.ToArray() , doctype);
+        //    //           fileStreamResult.FileDownloadName = fileName;
+        //    //return fileStreamResult;
+        //    Response.Headers.Add("Content-Disposition", "attachment; filename=download.zip");
+
+        //    return File(stream.ToArray(), doctype);
+
+        //}
+
 
         private IQueryable<TblSurvey> getSurveys(string query)
         {

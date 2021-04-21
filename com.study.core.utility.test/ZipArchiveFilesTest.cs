@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using com.study.core.utility.io.compression;
 using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace com.study.core.utility.test
 {
@@ -25,6 +26,33 @@ namespace com.study.core.utility.test
 
             string zipfile = System.IO.Path.Combine(zipfilepath.FilePath, zipfilepath.FileName);
             Assert.IsTrue(System.IO.File.Exists(zipfile));
+
+            
+
+
+        }
+
+        [Test]
+        public void CreateTestStream()
+        {
+
+            string filePath = @"F:\ziptest";
+            string fileName = "tes.zip";
+
+            var zipfilepath = new ZipFilePath() { FilePath = filePath, FileName = fileName };
+            var zip = new com.study.core.utility.io.compression.ZipArchiveFiles(zipfilepath);
+
+            zip.AddFilesInFolder(@"F:\강의\대용량아키텍처설계\대용량아키텍처설계");
+            var stream = zip.CreateSream();
+            stream.Position = 0;
+            string zipfile = System.IO.Path.Combine(zipfilepath.FilePath, zipfilepath.FileName);
+            Assert.IsTrue(System.IO.File.Exists(zipfile));
+
+            string doctype =  "application/octet-stream";
+            FileStreamResult fileStreamResult = new FileStreamResult(stream , doctype);
+            fileStreamResult.FileDownloadName = fileName;
+
+
         }
 
         [Test]

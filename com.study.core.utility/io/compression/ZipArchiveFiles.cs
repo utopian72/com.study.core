@@ -68,8 +68,11 @@ namespace com.study.core.utility.io.compression
                     {
                         string targetfile = System.IO.Path.Combine(file.FilePath, file.FileName);
                         ziparchive.CreateEntryFromFile(targetfile, file.FileName);
+                        
                     }
+                    
                 }
+
                 return memoryStream;
             }
         }

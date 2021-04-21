@@ -28,7 +28,17 @@
 
     
 }
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $(".button-download").click(function(){
+
+            alert("ddd");
+        })
+    });
+
+</script>
 <style>
     .header-survey-title {
         width:450px;
@@ -78,6 +88,8 @@
         <input type="text" name="query" class="form-control btn-" placeholder="조사명" aria-label="조사명" aria-describedby="basic-addon2" value="@query">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="submit">검색</button>
+            <button class="btn btn-outline-secondary button-download" type="button">다운로드</button>
+
             @Html.ActionLink("다운로드", "Download", "TblSurveys", new { query = query }, new { @class = "btn btn-info" })
         </div>
     </div>

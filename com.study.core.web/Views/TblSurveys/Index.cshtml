@@ -1,0 +1,210 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using System.Web;
+
+@using com.study.core.model;
+@using com.study.core.web.Pagination;
+@using PagedList.Core;
+
+@using PagedList.Core.Mvc;
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, PagedList.Core.Mvc
+
+@*model IEnumerable<com.study.core.model.TblSurvey>*@
+
+@model PagedList<TblSurvey>
+
+@{
+    ViewData["Title"] = "조사 목록";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int page = Model.PageNumber;
+
+    string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "SName" : ViewData["currentSort"].ToString();
+    string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
+
+
+    
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".button-download").click(function(){
+
+            alert("ddd");
+        })
+    });
+
+</script>
+<style>
+    .header-survey-title {
+        width:450px;
+    }
+
+    .header-survey-active {
+        width: 100px;
+    }
+
+    .header-survey-quota {
+        width: 80px;
+    }
+
+    .header-survey-lastday {
+        width: 80px;
+    }
+
+    .header-survey-year {
+        width: 100px;
+    }
+
+    .header-survey-button {
+        width: 100px;
+    }
+
+
+    .column-text-center {
+        text-align: center;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-right">
+    <p>
+        <a class="btn btn-sm btn-primary" asp-action="Create" asp-controller="TblSurveys">등록</a>
+    </p>
+</div>
+
+
+
+
+
+@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = "SName" }, FormMethod.Get))
+{
+    <div class="input-group mb-3">
+        <input type="text" name="query" class="form-control btn-" placeholder="조사명" aria-label="조사명" aria-describedby="basic-addon2" value="@query">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">검색</button>
+            <button class="btn btn-outline-secondary button-download" type="button">다운로드</button>
+
+            @Html.ActionLink("다운로드", "Download", "TblSurveys", new { query = query }, new { @class = "btn btn-info" })
+        </div>
+    </div>
+}
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="header-survey-title">
+                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@ViewData["sortOrderSName"]">
+                    @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SName)
+                </a>
+            </th>
+            <th  class="header-survey-active">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseBl)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SmsMessage)
+            </th>
+            <th class="header-survey-quota">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().IngQuotaBl)
+            </th>
+            <th class="header-survey-lastday">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LastDay)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Callback)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Url)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Description)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LogoFile)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseListCountBl)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().CssStyleName)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseQuotaAccessBl)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LogoWidth)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LogHeight)
+            </th>
+            <th class="header-survey-year">
+                @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SurveyYear)
+            </th>
+            <th class="header-survey-button">수정</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.SName, "Index", "TblLists", new { surveyno = item.SurveyNo })
+                </td>
+                <td class="column-text-center">
+                    @Html.DisplayFor(modelItem => item.UseBl)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.SmsMessage)
+                </td>
+                <td  class="column-text-center">
+                    @Html.DisplayFor(modelItem => item.IngQuotaBl)
+                </td>
+                <td class="column-text-center">
+                    @Html.DisplayFor(modelItem => item.LastDay)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.Callback)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.LogoFile)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.UseListCountBl)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.CssStyleName)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.UseQuotaAccessBl)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.LogoWidth)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.LogHeight)
+                </td>
+                <td class="column-text-center">
+                    @Html.DisplayFor(modelItem => item.SurveyYear)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.SurveyNo">수정</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4" asp-route-sortOrder="@currentSort" asp-action="Index" asp-controller="TblSurveys" asp-route-query="@query" />

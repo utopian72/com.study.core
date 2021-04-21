@@ -1,0 +1,85 @@
+﻿@model com.study.core.model.TblQuestion
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TblQuestion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QtType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QtType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QtText)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QtText)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QtBody)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QtBody)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.QtScript)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.QtScript)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UseQuotaBl)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UseQuotaBl)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NextQuestion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NextQuestion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Exclude)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Exclude)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Include)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Include)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Detailorder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Detailorder)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SurveyNoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SurveyNoNavigation.SmsMessage)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

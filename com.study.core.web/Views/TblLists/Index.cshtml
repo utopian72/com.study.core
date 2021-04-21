@@ -1,0 +1,93 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using System.Web;
+
+@using com.study.core.model;
+@using com.study.core.web.Pagination;
+@using PagedList.Core;
+
+@using PagedList.Core.Mvc;
+
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, PagedList.Core.Mvc
+
+
+@model PagedList<TblList>
+
+
+
+@{
+    ViewData["Title"] = "리스트 목록";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int surveyno = ViewData["surveyno"] is null ? 0 : Convert.ToInt32(ViewData["surveyno"]);
+
+    string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "CellNum" : ViewData["currentSort"].ToString();
+    string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
+
+
+    // string sortOrderCol01 = string.IsNullOrWhiteSpace(@ViewData["sortOrderCol01"].ToString()) ?  "Col01" : @ViewData["sortOrderCol01"].ToString();
+    string sortOrderCol01 = @ViewData["sortOrderCol01"] is null ? "Col01" : @ViewData["sortOrderCol01"].ToString();
+
+
+    string sortOrderCellNum = @ViewData["sortOrderCellNum"] is null ? "CellNum" : @ViewData["sortOrderCellNum"].ToString();
+    
+}
+
+<h1>리스트</h1>
+
+<div class="text-right">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">등록</a>
+    </p>
+</div>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-controller="TblLists"  asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber"  asp-route-sortOrder="@ViewData["sortOrderCellNum"]">
+                    @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().CellNum)
+                </a>
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-controller="TblLists" asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCol01" >
+                    @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Col01)
+                </a>
+            </th>
+            <th>
+                수정
+            </th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.Display(item.CellNum);
+                </td>
+
+                <td>
+                    @Html.Display(item.Col01);
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="TblLists" class="btn btn-primary" asp-route-listno="@item.ListNo" asp-route-surveyno="@item.SurveyNo">수정</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4"   asp-route-surveyno="@surveyno" asp-route-sortOrder="@currentSort"asp-route-query="@query"  asp-action="Index" asp-controller="TblLists" />
+
+
+
+
+

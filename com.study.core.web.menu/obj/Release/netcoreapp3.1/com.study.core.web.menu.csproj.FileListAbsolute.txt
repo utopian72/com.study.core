@@ -1,9 +1,0 @@
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\bin\Release\netcoreapp3.1\com.study.core.web.menu.deps.json
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\bin\Release\netcoreapp3.1\com.study.core.web.menu.dll
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\bin\Release\netcoreapp3.1\com.study.core.web.menu.pdb
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.csprojAssemblyReference.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.AssemblyInfoInputs.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.AssemblyInfo.cs
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.csproj.CoreCompileInputs.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.dll
-G:\GitHub\utopian72\com.study.core\com.study.core.web.menu\obj\Release\netcoreapp3.1\com.study.core.web.menu.pdb

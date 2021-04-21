@@ -1,9 +1,0 @@
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\bin\Release\netcoreapp3.1\com.study.core.utility.deps.json
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\bin\Release\netcoreapp3.1\com.study.core.utility.dll
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\bin\Release\netcoreapp3.1\com.study.core.utility.pdb
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.csprojAssemblyReference.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.AssemblyInfoInputs.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.AssemblyInfo.cs
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.csproj.CoreCompileInputs.cache
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.dll
-G:\GitHub\utopian72\com.study.core\com.study.core.utility\obj\Release\netcoreapp3.1\com.study.core.utility.pdb

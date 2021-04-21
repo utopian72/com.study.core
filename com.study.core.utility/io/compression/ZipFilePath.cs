@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
-namespace com.study.core.utility.io.compression
+namespace NiceReport.Web.Utility.io.compression
 {
     public class ZipFilePath: IUploadFileResult
     {
@@ -19,5 +20,7 @@ namespace com.study.core.utility.io.compression
         }
         public string FilePath { get; set; }
         public string FileName { get; set; }
+
+        public string FullPath { get { return System.IO.Path.Combine(FilePath, FileName);  } }
     }
 }

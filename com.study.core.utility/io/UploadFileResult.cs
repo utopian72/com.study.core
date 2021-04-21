@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace com.study.core.utility.io
+namespace NiceReport.Web.Utility.io
 {
     public interface IUploadFileResult
     {

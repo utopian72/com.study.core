@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace com.study.core.utility.io
+namespace NiceReport.Web.Utility.io
 {
    
     public interface IUploadFiles
@@ -78,6 +78,7 @@ namespace com.study.core.utility.io
 
             using (var uploadFile = System.IO.File.Create(filePath))
             {
+                if (File.Exists(filePath)) File.Delete(filePath);
                 file.CopyTo(uploadFile);
             }
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace NiceReport.Web.Utility.io
+namespace com.study.core.utility.io
 {
    
     public interface IUploadFiles

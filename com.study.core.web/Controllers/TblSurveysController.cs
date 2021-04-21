@@ -12,7 +12,7 @@ using System.IO;
 using System.Net.Http.Headers;
 using com.study.core.model;
 using System.Net;
-
+using com.study.core.utility;
 namespace com.study.core.web.Controllers
 {
     public class TblSurveysController : Controller
@@ -53,7 +53,7 @@ namespace com.study.core.web.Controllers
 
         public IActionResult DownLoad(string query)
         {
-            var toexcel = new com.study.core.utility.ToExcelWithOfficeOpenXml();
+            var toexcel = new ToExcelWithOfficeOpenXml();
             var lists = getSurveys(query);
 
             MemoryStream stream = toexcel.convertToExcel<TblSurvey>(lists.ToList());

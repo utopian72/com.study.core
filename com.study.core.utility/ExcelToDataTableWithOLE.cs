@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
-namespace NiceReport.Web.Utility
+namespace com.study.core.utility
 {
     //단위 테스트 완료
     public interface IExcelToDataTable

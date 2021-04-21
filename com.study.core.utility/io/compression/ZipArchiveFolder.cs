@@ -4,7 +4,7 @@ using System.Text;
 using System.IO.Compression;
 using System.IO;
 
-namespace NiceReport.Web.Utility.io.compression
+namespace com.study.core.utility.io.compression
 {
     //단위 테스트 완료
     public  class ZipArchiveFolder

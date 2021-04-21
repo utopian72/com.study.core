@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace NiceReport.Web.Utility.io.compression
+namespace com.study.core.utility.io.compression
 {
     public class ZipFilePath: IUploadFileResult
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.IO;
 
-namespace NiceReport.Web.Utility.io
+namespace com.study.core.utility.io
 {
     public class TempFile
     {

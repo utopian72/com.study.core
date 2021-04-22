@@ -101,14 +101,14 @@ namespace com.study.core.web.Controllers
 
         }
         // GET: TblSurveys
-        public IActionResult Index( string sortOrder ,  string query ,  int page = 1)
+        [HttpGet]
+        public IActionResult Index( string sortOrder ,  string query ="",  int page = 1)
         {
            
-            query = query ?? "";
+            //query = query ?? "";
 
             
             sortOrder = string.IsNullOrEmpty(sortOrder) ? "SName_desc" : sortOrder;
-
 
             var surveys = getSurveys(query);
 
@@ -117,9 +117,9 @@ namespace com.study.core.web.Controllers
             ViewData["query"] = query;
             ViewData["sortOrder"] = sortOrder;
             ViewData["currentSort"] = sortOrder;
-            ViewData["query"] = query;
+            
 
-            PagedList.Core.PagedList<TblSurvey> pagesurveys = new PagedList.Core.PagedList<TblSurvey>(surveys.AsNoTracking(), page, pageSize);
+            PagedList.Core.PagedList<TblSurvey> pagesurveys = new PagedList.Core.PagedList<TblSurvey>(surveys, page, pageSize);
 
             
             return View(pagesurveys);

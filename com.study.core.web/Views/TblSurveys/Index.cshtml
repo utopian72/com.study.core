@@ -21,12 +21,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int page = Model.PageNumber;
+   
 
     string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "SName" : ViewData["currentSort"].ToString();
     string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
 
 
-    
+
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript">
@@ -82,7 +83,7 @@
 
 
 
-@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = "SName" }, FormMethod.Get))
+@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = currentSort}, FormMethod.Get))
 {
     <div class="input-group mb-3">
         <input type="text" name="query" class="form-control btn-" placeholder="조사명" aria-label="조사명" aria-describedby="basic-addon2" value="@query">
@@ -98,7 +99,7 @@
     <thead>
         <tr>
             <th class="header-survey-title">
-                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@ViewData["sortOrderSName"]">
+                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-query="@query" asp-route-sortOrder="@ViewData["sortOrderSName"]">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SName)
                 </a>
             </th>

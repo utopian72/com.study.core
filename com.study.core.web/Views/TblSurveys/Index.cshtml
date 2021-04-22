@@ -21,19 +21,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int page = Model.PageNumber;
-   
-
-    string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "SName" : ViewData["currentSort"].ToString();
-    string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
 
 
+    //string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "SName" : ViewData["currentSort"].ToString();
+    string currentSort = getViewDataString("currentSort", "SName");
 
+    //string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
+    string query = getViewDataString("query");
+    //string sortOrderSName = string.IsNullOrWhiteSpace(@ViewData["sortOrderSName"].ToString()) ? "" : @ViewData["sortOrderSName"].ToString();
+
+    string sortOrderSName = getViewDataString("sortOrderSName" );
+
+    string getViewDataString(string name ,string defaultvalue="")
+    {
+        return string.IsNullOrWhiteSpace(ViewData[name].ToString()) ? defaultvalue : ViewData[name].ToString();
+    }
+
+    int getViewDataInt(string name, int  defaultvalue =0)
+    {
+        return ViewData[name] == null  ? defaultvalue : Convert.ToInt32(ViewData[name]);
+    }
 }
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $(".button-download").click(function(){
+        $(".button-download").click(function () {
 
             alert("ddd");
         })
@@ -42,7 +55,7 @@
 </script>
 <style>
     .header-survey-title {
-        width:450px;
+        width: 450px;
     }
 
     .header-survey-active {
@@ -78,19 +91,12 @@
         <a class="btn btn-sm btn-primary" asp-action="Create" asp-controller="TblSurveys">등록</a>
     </p>
 </div>
-
-
-
-
-
-@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = currentSort}, FormMethod.Get))
+@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = currentSort }, FormMethod.Get))
 {
     <div class="input-group mb-3">
         <input type="text" name="query" class="form-control btn-" placeholder="조사명" aria-label="조사명" aria-describedby="basic-addon2" value="@query">
         <div class="input-group-append">
             <button class="btn btn-outline-secondary" type="submit">검색</button>
-            <button class="btn btn-outline-secondary button-download" type="button">다운로드</button>
-
             @Html.ActionLink("다운로드", "Download", "TblSurveys", new { query = query }, new { @class = "btn btn-info" })
         </div>
     </div>
@@ -99,11 +105,11 @@
     <thead>
         <tr>
             <th class="header-survey-title">
-                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-query="@query" asp-route-sortOrder="@ViewData["sortOrderSName"]">
+                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-query="@query" asp-route-sortOrder="@sortOrderSName">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SName)
                 </a>
             </th>
-            <th  class="header-survey-active">
+            <th class="header-survey-active">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseBl)
             </th>
             <th class="column_hide">
@@ -162,7 +168,7 @@
                 <td class="column_hide">
                     @Html.DisplayFor(modelItem => item.SmsMessage)
                 </td>
-                <td  class="column-text-center">
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.IngQuotaBl)
                 </td>
                 <td class="column-text-center">

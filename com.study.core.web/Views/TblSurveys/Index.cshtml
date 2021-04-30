@@ -1,42 +1,124 @@
-﻿@using com.study.core.model;
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers;
+@using Microsoft.AspNetCore.Mvc.ViewFeatures;
+@using System.Web;
+
+@using com.study.core.model;
 @using com.study.core.web.Pagination;
+@using PagedList.Core;
+
+@using PagedList.Core.Mvc;
+
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, PagedList.Core.Mvc
 
 @*model IEnumerable<com.study.core.model.TblSurvey>*@
 
-@model PagedList.Core.PagedList<TblSurvey>
+@model PagedList<TblSurvey>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "조사 목록";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string query = ViewBag.Query ?? "";
+
     int page = Model.PageNumber;
+
+
+    //string currentSort = string.IsNullOrWhiteSpace(ViewData["currentSort"].ToString()) ? "SName" : ViewData["currentSort"].ToString();
+    string currentSort = getViewDataString("currentSort", "SName");
+
+    //string query = string.IsNullOrWhiteSpace(ViewData["query"].ToString()) ? "" : ViewData["query"].ToString();
+    string query = getViewDataString("query");
+    //string sortOrderSName = string.IsNullOrWhiteSpace(@ViewData["sortOrderSName"].ToString()) ? "" : @ViewData["sortOrderSName"].ToString();
+
+    string sortOrderSName = getViewDataString("sortOrderSName" );
+
+    string getViewDataString(string name ,string defaultvalue="")
+    {
+        return string.IsNullOrWhiteSpace(ViewData[name].ToString()) ? defaultvalue : ViewData[name].ToString();
+    }
+
+    int getViewDataInt(string name, int  defaultvalue =0)
+    {
+        return ViewData[name] == null  ? defaultvalue : Convert.ToInt32(ViewData[name]);
+    }
 }
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(".button-download").click(function () {
+
+            alert("ddd");
+        })
+    });
+
+</script>
+<style>
+    .header-survey-title {
+        width: 450px;
+    }
+
+    .header-survey-active {
+        width: 100px;
+    }
+
+    .header-survey-quota {
+        width: 80px;
+    }
+
+    .header-survey-lastday {
+        width: 80px;
+    }
+
+    .header-survey-year {
+        width: 100px;
+    }
+
+    .header-survey-button {
+        width: 100px;
+    }
 
 
-<h1>Index</h1>
+    .column-text-center {
+        text-align: center;
+    }
+</style>
 
-<p>
-    <a asp-action="Create">등록</a>
-</p>
-<table class="table">
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-right">
+    <p>
+        <a class="btn btn-sm btn-primary" asp-action="Create" asp-controller="TblSurveys">등록</a>
+    </p>
+</div>
+@using (Html.BeginForm("Index", "TblSurveys", new { page = page, sortOrder = currentSort }, FormMethod.Get))
+{
+    <div class="input-group mb-3">
+        <input type="text" name="query" class="form-control btn-" placeholder="조사명" aria-label="조사명" aria-describedby="basic-addon2" value="@query">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">검색</button>
+            @Html.ActionLink("다운로드", "Download", "TblSurveys", new { query = query }, new { @class = "btn btn-info" })
+        </div>
+    </div>
+}
+<table class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>
-                @Html.ActionLink("Index" , "TblSurveys", new { page = page , sort=1 ,query=query } )
+            <th class="header-survey-title">
+                <a asp-action="Index" asp-controller="TblSurveys" asp-route-page="@Model.PageNumber" asp-route-query="@query" asp-route-sortOrder="@sortOrderSName">
+                    @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SName)
+                </a>
             </th>
-            <th>
+            <th class="header-survey-active">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().UseBl)
             </th>
             <th class="column_hide">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SmsMessage)
             </th>
-            <th>
+            <th class="header-survey-quota">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().IngQuotaBl)
             </th>
-            <th>
+            <th class="header-survey-lastday">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LastDay)
             </th>
             <th class="column_hide">
@@ -66,10 +148,10 @@
             <th class="column_hide">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().LogHeight)
             </th>
-            <th>
+            <th class="header-survey-year">
                 @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().SurveyYear)
             </th>
-            <th></th>
+            <th class="header-survey-button">수정</th>
         </tr>
     </thead>
 
@@ -78,18 +160,18 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.SName)
+                    @Html.ActionLink(item.SName, "Index", "TblLists", new { surveyno = item.SurveyNo })
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.UseBl)
                 </td>
                 <td class="column_hide">
                     @Html.DisplayFor(modelItem => item.SmsMessage)
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.IngQuotaBl)
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.LastDay)
                 </td>
                 <td class="column_hide">
@@ -119,31 +201,17 @@
                 <td class="column_hide">
                     @Html.DisplayFor(modelItem => item.LogHeight)
                 </td>
-                <td>
+                <td class="column-text-center">
                     @Html.DisplayFor(modelItem => item.SurveyYear)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.SurveyNo">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.SurveyNo">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.SurveyNo">Delete</a>
+                    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.SurveyNo">수정</a>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-<div>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=  (ViewBag.CurrentPage >1 ?  ViewBag.CurrentPage -1:1) })">Previous</a></li>
-            @for (int p = 1; p <= ViewBag.TotalPages; p++)
-            {
-                <li class="page-item  @(p==ViewBag.CurrentPage ? "active":"")"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=p , query =query})">@p</a></li>
-            }
-            <li class="page-item"><a class="page-link" href="@Url.Action("Index","TblSurveys", new { page=(ViewBag.CurrentPage == ViewBag.TotalPages ?  ViewBag.CurrentPage:ViewBag.CurrentPage+1)})">Next</a></li>
-        </ul>
-    </nav>
-</div>
 
-
-<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4" asp-action="Index" asp-controller="TblSurveys" asp-route-query="@query" />
+<pager class="pager-container" list="@Model" options="@SitePagedListRenderOptions.Boostrap4" asp-route-sortOrder="@currentSort" asp-action="Index" asp-controller="TblSurveys" asp-route-query="@query" />

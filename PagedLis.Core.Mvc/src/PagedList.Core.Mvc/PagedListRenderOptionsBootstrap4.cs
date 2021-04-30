@@ -13,13 +13,13 @@ namespace PagedList.Core.Mvc
 
         private static readonly string[] DefaultAhrefElementClasses = { "page-link" };
 
-        private const string DefaultLinkToPreviousPageFormat = "Previous";
+        private const string DefaultLinkToPreviousPageFormat = "이전";
 
-        private const string DefaultLinkToNextPageFormat = "Next";
+        private const string DefaultLinkToNextPageFormat = "다음";
 
-        private const string DefaultLinkToFirstPageFormat = "First";
+        private const string DefaultLinkToFirstPageFormat = "처음";
 
-        private const string DefaultLinkToLastPageFormat = "Last";
+        private const string DefaultLinkToLastPageFormat = "마지막";
 
         private static void SetBootstrap4Option(PagedListRenderOptions option)
         {

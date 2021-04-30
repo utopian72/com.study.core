@@ -18,16 +18,17 @@ namespace PagedList.Core.Mvc
             DisplayLinkToLastPage = PagedListDisplayMode.IfNeeded;
             DisplayLinkToPreviousPage = PagedListDisplayMode.IfNeeded;
             DisplayLinkToNextPage = PagedListDisplayMode.IfNeeded;
+
             DisplayLinkToIndividualPages = true;
             DisplayPageCountAndCurrentLocation = false;
             MaximumPageNumbersToDisplay = 10;
             DisplayEllipsesWhenNotShowingAllPageNumbers = true;
             EllipsesFormat = "&#8230;";
-            LinkToFirstPageFormat = "カ";
-            LinkToPreviousPageFormat = "?";
+            LinkToFirstPageFormat = "처음";
+            LinkToPreviousPageFormat = "이전";
             LinkToIndividualPageFormat = "{0}";
-            LinkToNextPageFormat = "?";
-            LinkToLastPageFormat = "뻣";
+            LinkToNextPageFormat = "다음";
+            LinkToLastPageFormat = "마지막";
             PageCountAndCurrentLocationFormat = "Page {0} of {1}.";
             ItemSliceAndTotalFormat = "Showing items {0} through {1} of {2}.";
             ClassToApplyToFirstListItemInPager = null;
@@ -38,6 +39,8 @@ namespace PagedList.Core.Mvc
             AhrefElementClasses = Enumerable.Empty<string>();
             ActiveElementClasses = new[] { "active" };
             DisabledElementClasses = new[] { "disabled" };
+            ClassToApplyToFirstListItemInPager = "이전";
+            ClassToApplyToLastListItemInPager = "다음";
         }
 
         public string ContainerHtmlTag { get; set; }

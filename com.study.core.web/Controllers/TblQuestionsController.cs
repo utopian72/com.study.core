@@ -19,10 +19,24 @@ namespace com.study.core.web.Controllers
         }
 
         // GET: TblQuestions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? surveyno)
         {
             var mobileSurveyContext = _context.TblQuestion.Include(t => t.SurveyNoNavigation);
-            return View(await mobileSurveyContext.ToListAsync());
+
+
+            ViewData["surveyno"] = surveyno;
+
+
+            return View(await mobileSurveyContext.Where(x => x.SurveyNo.Equals(surveyno)).ToListAsync());
+        }
+
+        //[HttpPost]
+        public List<TblQuestion> List(int? surveyno)
+        {
+            //var mobileSurveyContext = _context.TblQuestion.Include(t => t.SurveyNoNavigation);
+
+            ViewData["surveyno"] = surveyno;
+            return _context.TblQuestion.Where(x => x.SurveyNo.Equals(surveyno)).ToList();
         }
 
         // GET: TblQuestions/Details/5
@@ -40,6 +54,8 @@ namespace com.study.core.web.Controllers
             {
                 return NotFound();
             }
+            
+            ViewData["surveyno"] = id;
 
             return View(tblQuestion);
         }
@@ -69,19 +85,19 @@ namespace com.study.core.web.Controllers
         }
 
         // GET: TblQuestions/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? surveyno , string qtcode)
         {
-            if (id == null)
+            if (surveyno == null || qtcode == null )
             {
                 return NotFound();
             }
 
-            var tblQuestion = await _context.TblQuestion.FindAsync(id);
+            var tblQuestion = await _context.TblQuestion.FindAsync(surveyno , qtcode );
             if (tblQuestion == null)
             {
                 return NotFound();
             }
-            ViewData["SurveyNo"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblQuestion.SurveyNo);
+            ViewData["SurveyItems"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblQuestion.SurveyNo);
             return View(tblQuestion);
         }
 
@@ -90,9 +106,9 @@ namespace com.study.core.web.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SurveyNo,QtCode,QtType,QtText,QtBody,QtScript,UseQuotaBl,NextQuestion,EndCode,Exclude,Include,Detailorder")] TblQuestion tblQuestion)
+        public async Task<IActionResult> Edit([Bind("SurveyNo,QtCode,QtType,QtText,QtBody,QtScript,UseQuotaBl,NextQuestion,EndCode,Exclude,Include,Detailorder")] TblQuestion tblQuestion)
         {
-            if (id != tblQuestion.SurveyNo)
+            if (tblQuestion.SurveyNo == 0 )
             {
                 return NotFound();
             }
@@ -115,7 +131,7 @@ namespace com.study.core.web.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index) , new { surveyno = tblQuestion.SurveyNo});
             }
             ViewData["SurveyNo"] = new SelectList(_context.TblSurvey, "SurveyNo", "SmsMessage", tblQuestion.SurveyNo);
             return View(tblQuestion);

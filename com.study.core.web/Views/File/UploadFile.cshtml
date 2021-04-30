@@ -1,0 +1,52 @@
+﻿@using  com.study.core.web.Controllers.Api
+
+@model RegisterFile
+@*
+    멀티  파일 업로드 예제.
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<input type="file" id="uploadFile" multiple />
+<button id="uploadButton">upload</button>
+
+<script type="text/javascript">
+
+    //$(document).ready(function () {
+
+    //    $("#uploadButton").click(function () {
+    //        alert("ddd");
+    //    });
+    //})
+
+    $(document).ready(function ()
+    {
+        $("#uploadButton").click(function () {
+            if ($("#uploadFile").val() === "") {
+                alert("File is empty.");
+                return;
+            }
+            var formData = new FormData();
+            $.each(document.querySelector("#uploadFile").files, function (i, item) {
+                formData.append("files", item);
+            });
+            $.ajax({
+                type: "POST",
+                url: "/File/UploadFiles",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $("#uploadFile").val("");
+
+                     alert(JSON.stringify(data));
+                }
+            })
+        });
+    });
+ 
+
+</script>

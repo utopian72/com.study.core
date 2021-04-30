@@ -346,3 +346,8 @@ C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\
 C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.dll
 C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.pdb
 C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\com.study.core.web.genruntimeconfig.cache
+C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblOptions\Create.cshtml.g.cs
+C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblOptions\Delete.cshtml.g.cs
+C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblOptions\Details.cshtml.g.cs
+C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblOptions\Edit.cshtml.g.cs
+C:\Users\ydi\Source\Repos\utopian72\com.study.core\com.study.core.web\obj\Debug\netcoreapp3.1\Razor\Views\TblOptions\Index.cshtml.g.cs

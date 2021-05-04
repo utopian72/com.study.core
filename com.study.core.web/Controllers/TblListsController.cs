@@ -17,7 +17,7 @@ namespace com.study.core.web.Controllers
         private readonly mobileSurveyContext _context;
         private readonly ILogger<TblListsController> _logger;
 
-        const int pageSize = 10;
+        const int pageSize = 3;
 
         public TblListsController(mobileSurveyContext context  , ILogger<TblListsController> logger)
         {
@@ -41,7 +41,7 @@ namespace com.study.core.web.Controllers
 
             ViewData["sortOrderCellNum"] = sortOrder.Equals("CellNum") ? "CellNum_desc" : "CellNum";
             ViewData["sortOrderCol01"] = sortOrder.Equals("Col01") ? "Col01_desc" : "Col01";
-
+            ViewData["sortOrderCol02"] = sortOrder.Equals("Col02") ? "Col02_desc" : "Col02";
             switch (sortOrder)
             {
                 case "CellNum":
@@ -56,7 +56,12 @@ namespace com.study.core.web.Controllers
                 case "Col01_desc":
                     lists = lists.OrderByDescending(a => a.Col01);
                     break;
-
+                case "Col02":
+                    lists = lists.OrderBy(a => a.Col02);
+                    break;
+                case "Col02_desc":
+                    lists = lists.OrderByDescending(a => a.Col02);
+                    break;
                 default:
                     lists = lists.OrderByDescending(a => a.CellNum);
                     break;

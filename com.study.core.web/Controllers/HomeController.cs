@@ -1,10 +1,16 @@
-﻿using com.study.core.web.Models;
+﻿using com.study.core.web.filter;
+using com.study.core.web.Models;
+using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
 using System.Threading.Tasks;
 
 namespace com.study.core.web.Controllers
@@ -31,7 +37,39 @@ namespace com.study.core.web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var exception = context.Error; // Your exception
+
+            //session error 체크
+            
+            if (exception is ApiSessionTimeoutException)
+            {
+
+                JsonReturnModel returnModel = new JsonReturnModel();
+                returnModel.IsSession = false;
+                returnModel.IsSuccess = false;
+                returnModel.Msg = exception.Message;
+
+                var options = new JsonSerializerOptions
+                {
+                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All, UnicodeRanges.All),
+                    WriteIndented = true
+                };
+                return Ok(returnModel);
+                //string jsonstring = JsonSerializer.Serialize<JsonReturnModel>(returnModel, options);
+                //HttpContext.Response.ContentType = "application/json;charset=UTF-8";
+                ////context.HttpContext.Response.ContentType = "application/json";
+                //HttpContext.Response.WriteAsync(jsonstring);
+            }
+
+
+            if (exception is SessionTimeoutException)
+            {
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = exception.Message });
+            }
+
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = "처리되지 않은 오류" });
+
         }
     }
 }

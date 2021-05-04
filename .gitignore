@@ -11,6 +11,13 @@
 /com.study.core.web.filter/obj
 /com.study.core.web.menu/bin
 /com.study.core.web.menu/obj
+/com.study.core.utility/bin
+/com.study.core.utility/obj
+
+/**/bin
+/**/obj
+
+
 /*/bin
 /*/obj
 *.dll

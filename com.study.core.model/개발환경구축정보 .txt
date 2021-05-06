@@ -12,3 +12,7 @@ Microsoft.EntityFrameworkCore.SqlServer.Design
 
 
 dotnet ef dbcontext scaffold "Data Source=172.29.181.161;Initial Catalog=mobileSurvey;User ID=sa;Password=skdltmfltjcl" Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet ef dbcontext scaffold "Data Source=192.168.84.130;Initial Catalog=School;User ID=sa;Password=##nice72@@" Microsoft.EntityFrameworkCore.SqlServer
+

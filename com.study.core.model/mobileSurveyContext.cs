@@ -9,8 +9,8 @@ namespace com.study.core.model
     public partial class mobileSurveyContext : DbContext
     {
 
-        private readonly byte[] _encryptionKey = ...;
-        private readonly byte[] _encryptionIV = ...;
+        private readonly byte[] _encryptionKey = "";
+        private readonly byte[] _encryptionIV = "";
         private readonly IEncryptionProvider _provider;
 
 
@@ -21,6 +21,7 @@ namespace com.study.core.model
         public mobileSurveyContext(DbContextOptions<mobileSurveyContext> options)
             : base(options)
         {
+            
             this._provider = new AesProvider(this._encryptionKey, this._encryptionIV);
         }
 

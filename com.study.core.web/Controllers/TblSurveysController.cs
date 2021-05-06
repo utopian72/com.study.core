@@ -18,7 +18,7 @@ using com.study.core.web.filter;
 
 namespace com.study.core.web.Controllers
 {
-    //[SessionActionFilter]
+    [SessionActionFilter]
     public class TblSurveysController : Controller
     {
         private ILogger<TblSurveysController> _logger;

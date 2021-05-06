@@ -9,9 +9,11 @@ using com.study.core.model;
 using Microsoft.Extensions.Logging;
 using PagedList.Core.Mvc;
 using PagedList.Core;
+using com.study.core.web.filter;
 
 namespace com.study.core.web.Controllers
 {
+    [SessionActionFilter]
     public class TblListsController : Controller
     {
         private readonly mobileSurveyContext _context;

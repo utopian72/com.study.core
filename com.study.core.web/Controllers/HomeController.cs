@@ -21,11 +21,19 @@ namespace com.study.core.web.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+         
+
             _logger = logger;
         }
 
+        public IActionResult Login(string username, string password)
+        {
+            HttpContext.Session.SetString("UserId", "utopian");
+            return RedirectToAction("Index", "TblSurveys");
+        }
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("UserId", "");
             return View();
         }
 
@@ -37,8 +45,8 @@ namespace com.study.core.web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
-            var exception = context.Error; // Your exception
+            var features = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var exception = features.Error; // Your exception
 
             //session error 체크
             
@@ -61,14 +69,18 @@ namespace com.study.core.web.Controllers
                 ////context.HttpContext.Response.ContentType = "application/json";
                 //HttpContext.Response.WriteAsync(jsonstring);
             }
-
-
-            if (exception is SessionTimeoutException)
+            else
             {
                 return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = exception.Message });
             }
 
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = "처리되지 않은 오류" });
+
+            //if (exception is SessionTimeoutException)
+            //{
+            //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = exception.Message });
+            //}
+
+            //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message= exception.Message);
 
         }
     }

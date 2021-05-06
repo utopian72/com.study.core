@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using com.study.core.model;
+using com.study.core.web.filter;
 
 namespace com.study.core.web.Controllers
 {
+    [SessionActionFilter]
     public class TblQuestionsController : Controller
     {
         private readonly mobileSurveyContext _context;

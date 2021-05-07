@@ -18,12 +18,6 @@ using Microsoft.AspNetCore.Diagnostics;
 namespace com.study.core.web.filter
 {
 
-    public class JsonReturnModel
-    {
-        public bool IsSuccess { get; set; } = true;
-        public bool IsSession { get; set; } = true;
-        public string Msg { get; set; }
-    }
     public class ApiSessionActionFilter : TypeFilterAttribute
     {
         public ApiSessionActionFilter() : base(typeof(ApiSessionActionFilterImpl))

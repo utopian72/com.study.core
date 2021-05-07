@@ -1,9 +1,0 @@
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.csprojAssemblyReference.cache
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.AssemblyInfoInputs.cache
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.AssemblyInfo.cs
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.csproj.CoreCompileInputs.cache
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\bin\Debug\netcoreapp3.0\PagedList.Core.Mvc.deps.json
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\bin\Debug\netcoreapp3.0\PagedList.Core.Mvc.dll
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\bin\Debug\netcoreapp3.0\PagedList.Core.Mvc.pdb
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.dll
-G:\GitHub\utopian72\com.study.core\PagedLis.Core.Mvc\src\PagedList.Core.Mvc\obj\Debug\netcoreapp3.0\PagedList.Core.Mvc.pdb

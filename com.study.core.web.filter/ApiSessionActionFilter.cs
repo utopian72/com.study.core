@@ -13,6 +13,7 @@ using System.Net;
 using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace com.study.core.web.filter
 {
@@ -40,26 +41,31 @@ namespace com.study.core.web.filter
 
             public void OnActionExecuting(ActionExecutingContext context)
             {
+
                 string session = context.HttpContext.Session.GetString("UserId");
 
 
                 if (string.IsNullOrWhiteSpace(session))
                 {
-                    JsonReturnModel returnModel = new JsonReturnModel();
-                    returnModel.IsSession = false;
-                    returnModel.IsSuccess = false;
-                    returnModel.Msg = "사용자 섹션 오류가 발생하였습니다.";
+                    throw new ApiSessionTimeoutException();
 
-                    var options = new JsonSerializerOptions
-                    {
-                        Encoder = JavaScriptEncoder.Create(UnicodeRanges.All, UnicodeRanges.All),
-                        WriteIndented = true
-                    };
+                    //==> Home/error 로 변경 
 
-                    string jsonstring = JsonSerializer.Serialize<JsonReturnModel>(returnModel, options);
-                    context.HttpContext.Response.ContentType = "application/json;charset=UTF-8";
-                    //context.HttpContext.Response.ContentType = "application/json";
-                    context.HttpContext.Response.WriteAsync(jsonstring);
+                    //JsonReturnModel returnModel = new JsonReturnModel();
+                    //returnModel.IsSession = false;
+                    //returnModel.IsSuccess = false;
+                    //returnModel.Msg = "사용자 섹션 오류가 발생하였습니다.";
+
+                    //var options = new JsonSerializerOptions
+                    //{
+                    //    Encoder = JavaScriptEncoder.Create(UnicodeRanges.All, UnicodeRanges.All),
+                    //    WriteIndented = true
+                    //};
+
+                    //string jsonstring = JsonSerializer.Serialize<JsonReturnModel>(returnModel, options);
+                    //context.HttpContext.Response.ContentType = "application/json;charset=UTF-8";
+                    ////context.HttpContext.Response.ContentType = "application/json";
+                    //context.HttpContext.Response.WriteAsync(jsonstring);
                 }
             }
 

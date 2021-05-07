@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
+using com.study.core.web.filter;
 
 namespace com.study.core.web
 {
@@ -33,7 +34,6 @@ namespace com.study.core.web
 
             //context를 등록한다.
             services.AddDbContext<com.study.core.model.mobileSurveyContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LMSContext")));
-
             services.AddMvc(option => option.EnableEndpointRouting = false).AddNewtonsoftJson();
             services.AddHttpContextAccessor();
             services.AddDistributedMemoryCache();
@@ -41,6 +41,8 @@ namespace com.study.core.web
             services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
             services.AddApplicationInsightsTelemetry();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,16 +52,21 @@ namespace com.study.core.web
             string path = Directory.GetCurrentDirectory();
             loggerFactory.AddFile($"{path}\\logs\\log.txt");
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+            //else
+            //{
+            //    app.UseExceptionHandler("/Home/Error");
+            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            //    app.UseHsts();
+            //}
+
+            app.UseExceptionHandler("/Home/Error");
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            app.UseHsts();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSession();

@@ -30,10 +30,10 @@
 
 
     // string sortOrderCol01 = string.IsNullOrWhiteSpace(@ViewData["sortOrderCol01"].ToString()) ?  "Col01" : @ViewData["sortOrderCol01"].ToString();
-    string sortOrderCol01 = @ViewData["sortOrderCol01"] is null ? "Col01" : @ViewData["sortOrderCol01"].ToString();
+    string sortOrderCol01 = @ViewData["sortOrderCol01"] == null ? "Col01" : @ViewData["sortOrderCol01"].ToString();
+    string sortOrderCol02 = @ViewData["sortOrderCol02"] == null ? "Col02" : @ViewData["sortOrderCol02"].ToString();
 
-
-    string sortOrderCellNum = @ViewData["sortOrderCellNum"] is null ? "CellNum" : @ViewData["sortOrderCellNum"].ToString();
+    string sortOrderCellNum = @ViewData["sortOrderCellNum"] == null ? "CellNum" : @ViewData["sortOrderCellNum"].ToString();
 
 }
 
@@ -62,7 +62,7 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-controller="TblLists" asp-route-query="@query"  asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@ViewData["sortOrderCellNum"]">
+                <a asp-action="Index" asp-controller="TblLists" asp-route-query="@query" asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCellNum">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().CellNum)
                 </a>
             </th>
@@ -70,6 +70,12 @@
             <th>
                 <a asp-action="Index" asp-controller="TblLists" asp-route-query="@query" asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCol01">
                     @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Col01)
+                </a>
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-controller="TblLists" asp-route-query="@query" asp-route-surveyno="@surveyno" asp-route-page="@Model.PageNumber" asp-route-sortOrder="@sortOrderCol02">
+                    @Html.DisplayNameFor(model => model.ToList().FirstOrDefault().Col02)
                 </a>
             </th>
             <th>
@@ -82,18 +88,21 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CellNum)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CellNum)
+            </td>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Col01)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-controller="TblLists" class="btn btn-primary" asp-route-listno="@item.ListNo" asp-route-surveyno="@item.SurveyNo">수정</a>
-                </td>
-            </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Col01)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Col02)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-controller="TblLists" class="btn btn-primary" asp-route-listno="@item.ListNo" asp-route-surveyno="@item.SurveyNo">수정</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

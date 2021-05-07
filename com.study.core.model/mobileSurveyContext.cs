@@ -1,11 +1,19 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.DataEncryption;
+using Microsoft.EntityFrameworkCore.DataEncryption.Providers;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace com.study.core.model
 {
     public partial class mobileSurveyContext : DbContext
     {
+
+        //private readonly byte[] _encryptionKey = "";
+        //private readonly byte[] _encryptionIV = "";
+        private readonly IEncryptionProvider _provider;
+
+
         public mobileSurveyContext()
         {
         }
@@ -13,6 +21,8 @@ namespace com.study.core.model
         public mobileSurveyContext(DbContextOptions<mobileSurveyContext> options)
             : base(options)
         {
+            
+           // this._provider = new AesProvider(this._encryptionKey, this._encryptionIV);
         }
 
         public virtual DbSet<Sysdiagrams> Sysdiagrams { get; set; }

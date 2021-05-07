@@ -1,8 +1,15 @@
-﻿@model com.study.core.model.TblSurvey
+﻿@page 
+@using Microsoft.AspNetCore.Http
+@model com.study.core.model.TblSurvey
+
 
 @{
+
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    //view 에서 session 사용 가능
+    //string value = HttpContext.Session.GetString("");
 }
 
 <h1>Create</h1>

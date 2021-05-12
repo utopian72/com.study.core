@@ -25,6 +25,8 @@ namespace com.study.core.model
            // this._provider = new AesProvider(this._encryptionKey, this._encryptionIV);
         }
 
+        public virtual DbSet<TblUser> TblUsers { get; set; }
+
         public virtual DbSet<Sysdiagrams> Sysdiagrams { get; set; }
         public virtual DbSet<TblAccessLog> TblAccessLog { get; set; }
         public virtual DbSet<TblAttrJavascript> TblAttrJavascript { get; set; }
@@ -61,6 +63,41 @@ namespace com.study.core.model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<TblUser>(entity =>
+            {
+                entity.HasKey(e => e.MemId);
+
+                entity.ToTable("tbl_user");
+
+                entity.Property(e => e.MemId)
+                    .HasColumnName("memId")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Grade).HasColumnName("grade");
+
+                entity.Property(e => e.IsDel).HasColumnName("isDel");
+
+                entity.Property(e => e.LastDate)
+                    .HasColumnName("lastDate")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.MemName)
+                    .HasColumnName("memName")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Pwd)
+                    .HasColumnName("pwd")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RegDate)
+                    .HasColumnName("regDate")
+                    .HasColumnType("datetime");
+            });
+
             modelBuilder.Entity<Sysdiagrams>(entity =>
             {
                 entity.HasKey(e => e.DiagramId)

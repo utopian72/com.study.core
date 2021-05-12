@@ -16,3 +16,9 @@ dotnet ef dbcontext scaffold "Data Source=172.29.181.161;Initial Catalog=mobileS
 
 dotnet ef dbcontext scaffold "Data Source=192.168.84.130;Initial Catalog=School;User ID=sa;Password=##nice72@@" Microsoft.EntityFrameworkCore.SqlServer
 
+
+dotnet ef dbcontext scaffold "Data Source=172.29.181.161;Initial Catalog=mobileSurvey;User ID=sa;Password=skdltmfltjcl" Microsoft.EntityFrameworkCore.SqlServer -o Model -t tbl_user
+=> Model이라는 폴더에 생성된다.
+=> 생선된 코드를 복사하여 상위 폴더로 복사하고 네임스페이스를 수정한다.
+=> 새로 생성된 context의 OnModelCreating의 해당되는 테이블의 코드를 복사하여 현재 사용중인 context에 복사한다.
+

@@ -11,9 +11,9 @@ namespace com.study.core.service
             _context = context;
         }
 
-        public bool Login(string id , string password)
-        {
+        //public bool Login(string id , string password)
+        //{
             
-        }
+        //}
     }
 }

@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\com.study.core.model\com.study.core.model.csproj" />
-    <ProjectReference Include="..\com.study.core.utility\com.study.core.utility.csproj" />
   </ItemGroup>
 
 </Project>

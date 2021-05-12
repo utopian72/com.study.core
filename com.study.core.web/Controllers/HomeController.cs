@@ -15,6 +15,14 @@ using System.Threading.Tasks;
 
 namespace com.study.core.web.Controllers
 {
+
+    public class JsonReturnModel
+    {
+        public bool IsSuccess { get; set; } = true;
+        public bool IsSession { get; set; } = true;
+        public string Msg { get; set; }
+    }
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -55,8 +63,8 @@ namespace com.study.core.web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            var features = HttpContext.Features.Get<IExceptionHandlerFeature>();
-            var exception = features.Error; // Your exception
+            var feature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var exception = feature.Error; // Your exception
 
             //session error 체크
             

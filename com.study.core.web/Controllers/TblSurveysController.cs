@@ -148,6 +148,7 @@ namespace com.study.core.web.Controllers
         // GET: TblSurveys/Create
         public IActionResult Create()
         {
+            //_logger.LogInformation("create");
             return View();
         }
 
@@ -160,6 +161,7 @@ namespace com.study.core.web.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblSurvey.SurveyNo = GetNextSurveyNo();
                 _context.Add(tblSurvey);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -167,6 +169,17 @@ namespace com.study.core.web.Controllers
             return View(tblSurvey);
         }
 
+        private int GetNextSurveyNo()
+        {
+            try
+            {
+                return _context.TblSurvey.Max(s => s.SurveyNo) + 1;
+            }
+            catch
+            {
+                return 1;
+            }
+        }
         // GET: TblSurveys/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

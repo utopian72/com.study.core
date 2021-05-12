@@ -1,4 +1,6 @@
 ﻿@using System;
+@using com.study.core.web.menu;
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 
@@ -8,11 +10,14 @@
 
     string activelabel = "active";
 
-    var menus = com.study.core.web.menu.MenuItem.CreateMenus();
+    List<MenuItem> menus = null;
 
+    var activemenu = com.study.core.web.menu.MenuItem.GetMenu(controllerName);
+    if (activemenu != null)
+    {
+        menus = com.study.core.web.menu.MenuItem.GetCategoryMenus(activemenu);
+    }
 }
-
-
 
 <div class="vertical-menu">
 

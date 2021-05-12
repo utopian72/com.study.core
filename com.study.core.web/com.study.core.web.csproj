@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\com.study.core.model\com.study.core.model.csproj" />
     <ProjectReference Include="..\com.study.core.utility\com.study.core.utility.csproj" />
+    <ProjectReference Include="..\com.study.core.web.errorcode\com.study.core.web.errorcode.csproj" />
     <ProjectReference Include="..\com.study.core.web.filter\com.study.core.web.filter.csproj" />
     <ProjectReference Include="..\com.study.core.web.menu\com.study.core.web.menu.csproj" />
     <ProjectReference Include="..\com.study.core.web.taghelpers\com.study.core.web.taghelpers.csproj" />

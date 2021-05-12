@@ -21,8 +21,6 @@ namespace com.study.core.web.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-         
-
             _logger = logger;
         }
 
@@ -30,6 +28,18 @@ namespace com.study.core.web.Controllers
         {
             HttpContext.Session.SetString("UserId", "utopian");
             return RedirectToAction("Index", "TblSurveys");
+        }
+        public IActionResult ErrorCode(int code)
+        {
+            var codeerror = com.study.core.web.errorcode.ErrorCode.GetError(code);
+            if (codeerror != null)
+            {
+                throw new Exception(codeerror.Description);
+            }
+            else
+            {
+                throw new Exception("알수없는 에라!! 관리자에게 문의하세요.");
+            }
         }
         public IActionResult Index()
         {

@@ -12,7 +12,7 @@
 <div class="text-right">
     <a asp-action="Index" asp-controller="TblSurveys" class="btn btn-primary">목록</a>
 </div>
-<form asp-action="Edit" asp-controller="TblSurveys" enctype="multipart/form-data">
+<form id="frmMain" asp-action="Edit" asp-controller="TblSurveys" enctype="multipart/form-data" onsubmit="return confirm('저장을 하시겠습니까?');">
     <div class="row">
         <div class="col-md-6">
 
@@ -95,18 +95,69 @@
                 <span asp-validation-for="SurveyYear" class="text-danger"></span>
             </div>
 
-            <div class="form-group col-md-12">
-                <div class="col-md-3">
-                    <input type="submit" value="저장" class="form-control btn btn-primary" />
-                </div>
-                <div class="col-md-3">
-                    @Html.ActionLink("삭제", "Delete", "TblSurveys", new { id = Model.SurveyNo }, new { @class = "form-control btn btn-warning" })
-                </div>
+            <div class="form-group">
+                <span>
+                    <input id="btnSave" type="submit" value="저장" class="btn btn-primary" />
+                </span>
+                <span>
+                    <a id="btnDelete" class="btn btn-warning" href="/TblSurveys/Delete/@Model.SurveyNo" onclick = "if (! confirm('삭제를 하시겠습니까?')) { return false; }">삭제</a>
+                </span>
             </div>
         </div>
     </div>
 </form>
+<script type="text/javascript">
 
+    $(document).ready(function () {
+
+        //ajax를 이용하여  저장할 때 사용하는 코드
+        //별도 api를 호출한다.
+        $(".button-save").click(function (e) {
+            try {
+                e.preventDefault();
+                var formData = new FormData();
+
+                $.ajax({
+                    type: "POST",
+                    url: '/List/UploadSendOne',
+                    data: formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    error: function (request, status, error) {
+                        //showAlertMsg("code : " + request.status + "\r\nmessage : " + request.reponseText);
+                        showAlertMsg("로그인 후 다시 이용해주세요! (장시간 이용하지 않았거나  네트워크 오류 입니다!");
+                        location.href = "/Sign/Out";
+                    },
+                    success: function (response, status, request) {
+                        var obj = JSON.parse(request.responseText);
+                        if (obj.isSuccess) {
+                            alert("업로드 완료!");
+                            location.reload(true);
+                        } else {
+                            if (obj.isSession) {
+                                alert(obj.msg);
+                            } else {
+                                alert("세션이 만료 되었습니다.\n다시 로그인 후 이용해 주세요!");
+                            }
+                        }
+                    },
+                    beforeSend: function () {
+                        showLoading(true);
+                    },
+                    complete: function () {
+                        showLoading(false);
+                    }
+                });
+            } catch (ex) {
+                alert(ex);
+            }
+
+
+        })
+
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -10,7 +10,7 @@
     var menus = com.study.core.web.menu.MenuItem.CreateMenus();
     var topmenus = menus.Where(m => m.IsTop).ToList();
 
-    ViewData["Title"] = "LMS";
+    string title = "LMS " + ViewData["Title"] ;
 
 }
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"]</title>
+    <title>@title</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/lib/bootstrap/dist/css/bootstrap-grid.css" rel="stylesheet" />
@@ -79,8 +79,7 @@
     <main role="main" class="pb-3">
         <div class="container-fluid col-md-12">
             <div class="col-md-2" style="float:left;">
-                @Html.PartialAsync("_SurveyLeftMenu.cshtml")
-
+                @Html.Partial("_SurveyLeftMenu.cshtml")
             </div>
             <div class="col-md-10" style="float:right;">
 

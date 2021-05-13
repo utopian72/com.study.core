@@ -17,7 +17,7 @@
 @model PagedList<TblSurvey>
 
 @{
-    ViewData["Title"] = "조사 목록";
+    ViewData["Title"] = "조사";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int page = Model.PageNumber;
@@ -46,10 +46,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $(".button-download").click(function () {
-
-            alert("ddd");
-        })
     });
 
 </script>

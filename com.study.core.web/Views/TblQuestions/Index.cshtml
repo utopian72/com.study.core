@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<com.study.core.model.TblQuestion>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "항목";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     int surveyno = ViewData["surveyno"] is null ? 0 : Convert.ToInt32(ViewData["surveyno"]);
-
-
 }
 
 
-<h1>Index</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div class="text-right">
     <p>

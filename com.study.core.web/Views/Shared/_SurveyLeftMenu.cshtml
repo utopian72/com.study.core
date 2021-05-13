@@ -4,7 +4,10 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
 
-    int surveyno = ViewData["surveyno"] == null  ? 0 : Convert.ToInt32(ViewData["surveyno"]);
+
+    //if(ViewData["surveyno"]== null ) throw new Exception("필수 파라미터 누락");
+
+    int surveyno = ViewData["surveyno"] == null ? 0 : Convert.ToInt32(ViewData["surveyno"]);
 
     string controllerName = ViewContext.RouteData.Values["Controller"].ToString();
 
@@ -21,19 +24,23 @@
 
 <div class="vertical-menu">
 
-   
+   @if (menus != null)
+   {
     @foreach (var menu in menus)
     {
         @if (menu.IsTop)
         {
-            <a asp-action="index" asp-controller="@menu.Controller" class='@if (controllerName.Equals(menu.Controller))  { @activelabel} '>@menu.Label</a>
+            <a asp-action="index" asp-controller="@menu.Controller" class='@if (controllerName.Equals(menu.Controller))
+            { @activelabel} '>@menu.Label</a>
         }
         else
         {
             if (ViewData["surveyno"] != null)
             {
-                <a asp-route-surveyno="@surveyno" asp-action="Index" asp-controller="@menu.Controller" class='@if (controllerName.Equals(menu.Controller)){ @activelabel} '>@menu.Label</a>
+                <a asp-route-surveyno="@surveyno" asp-action="Index" asp-controller="@menu.Controller" class='@if (controllerName.Equals(menu.Controller))
+                { @activelabel} '>@menu.Label</a>
             }
         }
     }
+   }
   </div>

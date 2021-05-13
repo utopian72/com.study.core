@@ -1,23 +1,38 @@
 ﻿@model IEnumerable<com.study.core.model.TblUser>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "사용자";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int page = 0;
+    string currentSort = "";
+    string query = "";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<h1>@ViewData["Title"]</h1>
+<div class="text-right">
+    <p>
+        <a asp-action="Create" asp-controller="TblUsers" class="btn btn-primary">등록</a>
+    </p>
+</div>
+@using (Html.BeginForm("Index", "TblUsers", new { page = page, sortOrder = currentSort }, FormMethod.Get))
+{
+    <div class="input-group mb-3">
+        <input type="text" name="query" class="form-control btn-" placeholder="사용자명" aria-label="사용자명" aria-describedby="basic-addon2" value="@query">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">검색</button>
+            @Html.ActionLink("다운로드", "Download", "TblUsers", new { query = query }, new { @class = "btn btn-info" })
+        </div>
+    </div>
+}
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Pwd)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.MemName)
+            </th>
+            <th class="column_hide">
+                @Html.DisplayNameFor(model => model.Pwd)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Grade)
@@ -35,32 +50,34 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pwd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsDel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegDate)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MemId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MemId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MemId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MemName)
+                </td>
+                <td class="column_hide">
+                    @Html.DisplayFor(modelItem => item.Pwd)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsDel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.MemId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.MemId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.MemId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

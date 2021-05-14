@@ -18,6 +18,11 @@ namespace com.study.core.model
         {
         }
 
+        public void ExecuteSqlCommend(string query)
+        {
+            throw new NotImplementedException();
+        }
+
         public mobileSurveyContext(DbContextOptions<mobileSurveyContext> options)
             : base(options)
         {

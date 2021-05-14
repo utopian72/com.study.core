@@ -1,5 +1,6 @@
 ﻿using com.study.core.model;
 using System;
+using System.Linq;
 
 namespace com.study.core.service
 {
@@ -11,9 +12,20 @@ namespace com.study.core.service
             _context = context;
         }
 
-        //public bool Login(string id , string password)
-        //{
-            
-        //}
+        public bool Login(string id, string password)
+        {
+            try
+            {
+                var user = _context.TblUsers.Where(u => u.MemId.Equals(id)).FirstOrDefault();
+
+                if (user.Pwd.Equals(password))
+                    return true;
+                else
+                    return false;
+            }catch
+            {
+                return false;
+            }
+        }
     }
 }

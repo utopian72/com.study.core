@@ -10,6 +10,6 @@ namespace com.study.core.authority
             _user = user;
         }
 
-
+        
     }
 }

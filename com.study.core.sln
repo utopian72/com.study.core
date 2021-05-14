@@ -17,15 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.core.web.taghelpe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.web.razor", "com.study.web.razor\com.study.web.razor.csproj", "{09783D45-D114-4076-97B2-DA859C28AE32}"
 EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.web.errorcode", "com.study.core.web.errorcode\com.study.core.web.errorcode.csproj", "{E685C9E0-5D69-4115-ABD7-681BB288D2EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.core.web.errorcode", "com.study.core.web.errorcode\com.study.core.web.errorcode.csproj", "{E685C9E0-5D69-4115-ABD7-681BB288D2EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.authority", "com.study.core.authority\com.study.core.authority.csproj", "{A3E0BBF8-CA61-49F0-974C-8E64A4E2FDDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.core.authority", "com.study.core.authority\com.study.core.authority.csproj", "{A3E0BBF8-CA61-49F0-974C-8E64A4E2FDDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.service", "com.study.core.service\com.study.core.service.csproj", "{3497BE19-D277-4C69-BE8B-F3F42D6FDFF8}"
-=======
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.core.service", "com.study.core.service\com.study.core.service.csproj", "{3497BE19-D277-4C69-BE8B-F3F42D6FDFF8}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "com.study.core.utility", "com.study.core.utility\com.study.core.utility.csproj", "{9A49665A-DCE3-48DE-9766-54AE56DFC9AE}"
->>>>>>> 3c4285dadfffd0219a0fcc6a3c91e6826f2c1856
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.study.core.service.user", "com.study.core.service.user\com.study.core.service.user.csproj", "{E545D53F-FB97-430F-9EEA-D66F2C340DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,7 +61,6 @@ Global
 		{09783D45-D114-4076-97B2-DA859C28AE32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09783D45-D114-4076-97B2-DA859C28AE32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09783D45-D114-4076-97B2-DA859C28AE32}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{E685C9E0-5D69-4115-ABD7-681BB288D2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E685C9E0-5D69-4115-ABD7-681BB288D2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E685C9E0-5D69-4115-ABD7-681BB288D2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -74,12 +73,14 @@ Global
 		{3497BE19-D277-4C69-BE8B-F3F42D6FDFF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3497BE19-D277-4C69-BE8B-F3F42D6FDFF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3497BE19-D277-4C69-BE8B-F3F42D6FDFF8}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{9A49665A-DCE3-48DE-9766-54AE56DFC9AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A49665A-DCE3-48DE-9766-54AE56DFC9AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A49665A-DCE3-48DE-9766-54AE56DFC9AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A49665A-DCE3-48DE-9766-54AE56DFC9AE}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 3c4285dadfffd0219a0fcc6a3c91e6826f2c1856
+		{E545D53F-FB97-430F-9EEA-D66F2C340DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E545D53F-FB97-430F-9EEA-D66F2C340DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E545D53F-FB97-430F-9EEA-D66F2C340DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E545D53F-FB97-430F-9EEA-D66F2C340DDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

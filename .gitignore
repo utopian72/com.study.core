@@ -375,8 +375,8 @@ FodyWeavers.xsd
 /com.study.core.web.filter/obj
 /com.study.core.web.menu/bin
 /com.study.core.web.menu/obj
-/*/bin
-/*/obj
+/**/bin
+/**/obj
 *.dll
 *.log
 >>>>>>> e12c8e12f8a1c99706f7653f1ee58e477255ba32
